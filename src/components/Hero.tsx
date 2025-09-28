@@ -78,7 +78,7 @@ const Hero: React.FC = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 5.5 }}
-            className="mt-16"
+            className="mt-16 mb-20"
           >
             <p className="text-sm text-muted-foreground mb-4 font-mono">CORE TECHNOLOGIES</p>
             <div className="flex flex-wrap items-center justify-center gap-3">
@@ -104,7 +104,7 @@ const Hero: React.FC = () => {
         animate={{ opacity: 1 }}
         transition={{ duration: 0.6, delay: 6 }}
         style={{ opacity: scrollIndicatorOpacity }}
-        className="absolute bottom-8 left-1/2 transform -translate-x-1/2"
+        className="absolute bottom-6 left-1/2 transform -translate-x-1/2 z-20"
       >
         <motion.div
           animate={{ y: [0, 10, 0] }}
