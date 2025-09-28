@@ -145,20 +145,9 @@ const OpenSourceProjects: React.FC = () => {
           <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-6">
             Open-Source <span className="text-primary">Contributions</span> & Deep Dives
           </h2>
-          <p className="text-xl text-muted-foreground max-w-3xl mx-auto mb-8">
+          <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
             Production-ready repositories demonstrating advanced AI/ML implementations and system architecture patterns.
           </p>
-          
-          {/* Callout */}
-          <motion.div
-            initial={{ opacity: 0, scale: 0.95 }}
-            animate={isInView ? { opacity: 1, scale: 1 } : {}}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            className="inline-flex items-center gap-3 px-6 py-3 bg-primary/10 border border-primary/20 rounded-full text-primary font-medium"
-          >
-            <Github size={20} />
-            <span>All repositories feature detailed READMEs, clean commit history, and showcase problem-solving over boilerplate implementation.</span>
-          </motion.div>
         </motion.div>
 
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
