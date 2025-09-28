@@ -1,6 +1,7 @@
 import React, { useRef } from 'react';
 import { motion, useInView } from 'framer-motion';
-import { Download, Code, Brain, Cloud, User } from 'lucide-react';
+import { Download, Code, Brain, Cloud } from 'lucide-react';
+import profilePhoto from '../assets/profile-photo.png';
 
 const About: React.FC = () => {
   const sectionRef = useRef(null);
@@ -57,18 +58,13 @@ const About: React.FC = () => {
             {/* Profile Image */}
             <motion.div
               whileHover={{ scale: 1.05 }}
-              className="w-48 h-48 mx-auto lg:mx-0 rounded-2xl bg-gradient-to-br from-primary/20 to-accent/20 border border-border flex items-center justify-center mb-8 overflow-hidden"
+              className="w-48 h-48 mx-auto lg:mx-0 rounded-2xl bg-gradient-to-br from-primary/20 to-accent/20 border border-border overflow-hidden mb-8"
             >
-              {/* Professional headshot placeholder */}
-              <div className="w-full h-full bg-gradient-to-br from-primary/10 to-accent/10 flex items-center justify-center">
-                <User size={80} className="text-primary/60" />
-              </div>
-              {/* TODO: Replace with actual professional headshot */}
-              {/* <img 
-                src="/headshot-abhinav-bajpai.jpg" 
+              <img 
+                src={profilePhoto} 
                 alt="Abhinav Bajpai - Software Developer"
                 className="w-full h-full object-cover"
-              /> */}
+              />
             </motion.div>
 
             <div className="space-y-4 text-muted-foreground leading-relaxed">
