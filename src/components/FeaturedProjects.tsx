@@ -28,6 +28,8 @@ const ProjectCard: React.FC<ProjectProps> = ({
   const slug = title.toLowerCase()
     .replace(/[^a-z0-9]+/g, '-')
     .replace(/(^-|-$)/g, '');
+  
+  console.log('Generated slug for', title, ':', slug);
 
   return (
     <motion.div

@@ -233,7 +233,11 @@ public class ReportGenerationService {
 };
 
 export const getCaseStudy = (slug: string): CaseStudy | undefined => {
-  return caseStudies[slug];
+  console.log('Looking for case study with slug:', slug);
+  console.log('Available slugs:', Object.keys(caseStudies));
+  const result = caseStudies[slug];
+  console.log('Found case study:', result ? result.title : 'Not found');
+  return result;
 };
 
 export const getAllCaseStudies = (): CaseStudy[] => {
