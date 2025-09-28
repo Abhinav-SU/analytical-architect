@@ -2,7 +2,6 @@ import React from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { ArrowRight, Download } from 'lucide-react';
 import { Link } from 'react-router-dom';
-import TypewriterText from './TypewriterText';
 import SystemDiagram from './SystemDiagram';
 
 const Hero: React.FC = () => {
@@ -20,31 +19,74 @@ const Hero: React.FC = () => {
           transition={{ duration: 0.8, delay: 0.2 }}
           className="max-w-4xl mx-auto"
         >
-          {/* Title with Typewriter Effect */}
+          {/* Title - New Punchy Headlines */}
           <div className="mb-8 max-w-4xl md:max-w-5xl mx-auto text-center">
-            <TypewriterText
-              text="The Systemic Developer: I build scalable microservices and LLM applications that turn architectural complexity into quantifiable business efficiency and product innovation."
-              delay={1000}
-              speed={8}
-              className="text-4xl md:text-5xl lg:text-6xl font-bold leading-snug text-foreground"
-            />
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+              className="space-y-2"
+            >
+              <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold leading-tight">
+                <div className="text-primary">SCALABLE SYSTEMS</div>
+                <div className="text-foreground">INTELLIGENT BACKEND</div>
+                <div className="text-accent">MEASURABLE IMPACT</div>
+              </h1>
+            </motion.div>
           </div>
 
           {/* Subtitle */}
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 4.5 }}
+            transition={{ duration: 0.6, delay: 0.8 }}
             className="text-xl md:text-2xl text-muted-foreground mb-12 max-w-3xl mx-auto"
           >
             Software Developer specializing in backend systems, AI integration, and cloud architecture that delivers measurable business impact.
           </motion.p>
 
+          {/* Interactive Tech Badges */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 1.0 }}
+            className="mb-12"
+          >
+            <p className="text-sm text-muted-foreground mb-6 font-mono">CORE TECHNOLOGIES</p>
+            <div className="flex flex-wrap items-center justify-center gap-4">
+              {[
+                { name: 'Java', desc: 'Spring Boot, Microservices' },
+                { name: 'Python', desc: 'FastAPI, AI/ML' },
+                { name: 'LLMs', desc: 'OpenAI, RAG Architecture' },
+                { name: 'AWS', desc: 'Cloud Infrastructure' },
+                { name: 'Docker', desc: 'Containerization' },
+                { name: 'Kafka', desc: 'Event Streaming' }
+              ].map((tech, index) => (
+                <motion.div
+                  key={tech.name}
+                  initial={{ opacity: 0, scale: 0.8 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  transition={{ duration: 0.4, delay: 1.0 + index * 0.1 }}
+                  whileHover={{ scale: 1.05, y: -2 }}
+                  className="group relative"
+                >
+                  <div className="tech-tag cursor-pointer hover:bg-primary hover:text-primary-foreground transition-all duration-200">
+                    {tech.name}
+                  </div>
+                  {/* Tooltip */}
+                  <div className="absolute -top-12 left-1/2 transform -translate-x-1/2 bg-popover text-popover-foreground px-3 py-1 rounded-lg text-sm font-medium opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none whitespace-nowrap border border-border">
+                    {tech.desc}
+                  </div>
+                </motion.div>
+              ))}
+            </div>
+          </motion.div>
+
           {/* CTA Buttons */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 5 }}
+            transition={{ duration: 0.6, delay: 1.4 }}
             className="flex flex-col sm:flex-row items-center justify-center gap-6"
           >
             <motion.div whileHover={{ scale: 1.05, y: -2 }} whileTap={{ scale: 0.95 }}>
@@ -72,29 +114,6 @@ const Hero: React.FC = () => {
               Download Resume
             </motion.a>
           </motion.div>
-
-          {/* Tech Stack Preview */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 5.5 }}
-            className="mt-16 mb-20"
-          >
-            <p className="text-sm text-muted-foreground mb-4 font-mono">CORE TECHNOLOGIES</p>
-            <div className="flex flex-wrap items-center justify-center gap-3">
-              {['Java', 'Spring Boot', 'Python', 'FastAPI', 'LLMs', 'AWS', 'Microservices', 'Docker'].map((tech, index) => (
-                <motion.span
-                  key={tech}
-                  initial={{ opacity: 0, scale: 0.8 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  transition={{ duration: 0.4, delay: 5.5 + index * 0.1 }}
-                  className="tech-tag"
-                >
-                  {tech}
-                </motion.span>
-              ))}
-            </div>
-          </motion.div>
         </motion.div>
       </div>
 
@@ -102,7 +121,7 @@ const Hero: React.FC = () => {
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        transition={{ duration: 0.6, delay: 6 }}
+        transition={{ duration: 0.6, delay: 1.8 }}
         style={{ opacity: scrollIndicatorOpacity }}
         className="absolute bottom-6 left-1/2 transform -translate-x-1/2 z-20"
       >
