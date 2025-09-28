@@ -10,7 +10,7 @@ const Hero: React.FC = () => {
   const scrollIndicatorOpacity = useTransform(scrollY, [0, 200], [1, 0]);
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center system-bg">
+    <section className="relative min-h-screen flex items-center justify-center system-bg pt-20">
       <SystemDiagram />
       
       <div className="container mx-auto px-6 text-center relative z-10">
@@ -25,7 +25,7 @@ const Hero: React.FC = () => {
             <TypewriterText
               text="The Systemic Developer: I build scalable microservices and LLM applications that turn architectural complexity into quantifiable business efficiency and product innovation."
               delay={1000}
-              speed={15}
+              speed={8}
               className="text-4xl md:text-5xl lg:text-6xl font-bold leading-snug text-foreground"
             />
           </div>
