@@ -176,7 +176,7 @@ const About: React.FC = () => {
               <motion.a
                 whileHover={{ scale: 1.05, y: -2 }}
                 whileTap={{ scale: 0.95 }}
-                href="mailto:work@abhinavbajpai.online"
+                href="mailto:abhinavbajpai0296@gmail.com"
                 className="hero-button"
               >
                 Get In Touch

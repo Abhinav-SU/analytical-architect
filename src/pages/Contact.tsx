@@ -37,7 +37,7 @@ const Contact: React.FC = () => {
               
               <motion.a
                 whileHover={{ scale: 1.02, x: 5 }}
-                href="mailto:work@abhinavbajpai.online"
+                href="mailto:abhinavbajpai0296@gmail.com"
                 className="flex items-center gap-4 p-6 bg-card border border-border rounded-xl hover:border-primary/20 transition-colors cursor-glow"
               >
                 <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center">
@@ -45,7 +45,7 @@ const Contact: React.FC = () => {
                 </div>
                 <div>
                   <h3 className="font-semibold text-foreground">Email</h3>
-                  <p className="text-primary">work@abhinavbajpai.online</p>
+                  <p className="text-primary">abhinavbajpai0296@gmail.com</p>
                 </div>
               </motion.a>
 
@@ -146,7 +146,7 @@ const Contact: React.FC = () => {
                 <motion.a
                   whileHover={{ scale: 1.05, y: -2 }}
                   whileTap={{ scale: 0.95 }}
-                  href="mailto:work@abhinavbajpai.online"
+                  href="mailto:abhinavbajpai0296@gmail.com"
                   className="hero-button"
                 >
                   Start a Conversation
