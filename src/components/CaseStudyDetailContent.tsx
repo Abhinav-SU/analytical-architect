@@ -6,6 +6,18 @@ import { Link } from 'react-router-dom';
 import CounterAnimation from './CounterAnimation';
 import { CaseStudy } from '../data/caseStudies';
 
+// Import architecture diagrams
+import llmExplainerDiagram from '../assets/architecture-llm-explainer.svg';
+import iotWorkflowDiagram from '../assets/architecture-iot-workflow.svg';
+import microservicesRefactorDiagram from '../assets/architecture-microservices-refactor.svg';
+
+// Architecture diagram mapping
+const architectureDiagrams: Record<string, string> = {
+  'llm-explainer': llmExplainerDiagram,
+  'iot-workflow': iotWorkflowDiagram,
+  'microservices-refactor': microservicesRefactorDiagram
+};
+
 interface CaseStudyDetailContentProps {
   caseStudy: CaseStudy;
 }
@@ -164,15 +176,10 @@ const CaseStudyDetailContent: React.FC<CaseStudyDetailContentProps> = ({ caseStu
                 <div className="bg-card border border-border rounded-2xl p-8 shadow-elegant">
                   <div className="w-full bg-background rounded-xl border border-primary/20 p-6 min-h-[400px] flex items-center justify-center">
                     <img 
-                      src={caseStudy.architectureDiagram} 
+                      src={architectureDiagrams[caseStudy.architectureDiagram]} 
                       alt={`${caseStudy.title} Architecture Diagram`}
                       className="max-w-full max-h-full object-contain"
-                      onError={(e) => {
-                        console.error('Failed to load architecture diagram:', caseStudy.architectureDiagram);
-                        e.currentTarget.style.display = 'none';
-                        e.currentTarget.parentElement!.innerHTML = '<div class="text-muted-foreground text-center p-8">Architecture diagram loading...</div>';
-                      }}
-                      onLoad={() => console.log('Architecture diagram loaded successfully:', caseStudy.architectureDiagram)}
+                      style={{ maxHeight: '400px' }}
                     />
                   </div>
                 </div>
