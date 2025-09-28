@@ -26,8 +26,8 @@ export interface CaseStudy {
 }
 
 export const caseStudies: Record<string, CaseStudy> = {
-  'llm-codebase-explainer': {
-    slug: 'llm-codebase-explainer',
+  'llm-powered-codebase-explainer': {
+    slug: 'llm-powered-codebase-explainer',
     title: 'LLM-Powered Codebase Explainer',
     company: 'Syracuse University',
     role: 'Software Developer Intern',
@@ -88,8 +88,8 @@ class CodebaseExplainer:
     ]
   },
   
-  'scalable-iot-workflow': {
-    slug: 'scalable-iot-workflow',
+  'scalable-iot-device-workflow': {
+    slug: 'scalable-iot-device-workflow',
     title: 'Scalable IoT Device Workflow',
     company: 'Meltek Inc.',
     role: 'Backend Engineer',
@@ -156,8 +156,8 @@ public class DeviceWorkflowService {
     ]
   },
 
-  'microservices-refactor': {
-    slug: 'microservices-refactor',
+  'high-throughput-microservices-refactor': {
+    slug: 'high-throughput-microservices-refactor',
     title: 'High-Throughput Microservices Refactor',
     company: 'TCS',
     role: 'Senior Software Engineer',
