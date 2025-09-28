@@ -162,14 +162,19 @@ const CaseStudyDetailContent: React.FC<CaseStudyDetailContentProps> = ({ caseStu
                 className="sticky top-20 z-10 mb-16"
               >
                 <div className="bg-card border border-border rounded-2xl p-8 shadow-elegant">
-              <div className="aspect-video bg-gradient-to-br from-primary/5 to-accent/5 rounded-xl border border-primary/10 flex items-center justify-center overflow-hidden">
-                <img 
-                  src={caseStudy.architectureDiagram} 
-                  alt={`${caseStudy.title} Architecture Diagram`}
-                  className="w-full h-full object-contain"
-                  style={{ filter: 'brightness(0.9)' }}
-                />
-              </div>
+                  <div className="w-full bg-background rounded-xl border border-primary/20 p-6 min-h-[400px] flex items-center justify-center">
+                    <img 
+                      src={caseStudy.architectureDiagram} 
+                      alt={`${caseStudy.title} Architecture Diagram`}
+                      className="max-w-full max-h-full object-contain"
+                      onError={(e) => {
+                        console.error('Failed to load architecture diagram:', caseStudy.architectureDiagram);
+                        e.currentTarget.style.display = 'none';
+                        e.currentTarget.parentElement!.innerHTML = '<div class="text-muted-foreground text-center p-8">Architecture diagram loading...</div>';
+                      }}
+                      onLoad={() => console.log('Architecture diagram loaded successfully:', caseStudy.architectureDiagram)}
+                    />
+                  </div>
                 </div>
               </motion.div>
 
