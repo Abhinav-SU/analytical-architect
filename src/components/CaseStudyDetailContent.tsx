@@ -6,16 +6,11 @@ import { Link } from 'react-router-dom';
 import CounterAnimation from './CounterAnimation';
 import { CaseStudy } from '../data/caseStudies';
 
-// Import architecture diagrams
-import llmExplainerDiagram from '../assets/architecture-llm-explainer.svg';
-import iotWorkflowDiagram from '../assets/architecture-iot-workflow.svg';
-import microservicesRefactorDiagram from '../assets/architecture-microservices-refactor.svg';
-
-// Architecture diagram mapping
+// Architecture diagram mapping using public folder paths
 const architectureDiagrams: Record<string, string> = {
-  'llm-explainer': llmExplainerDiagram,
-  'iot-workflow': iotWorkflowDiagram,
-  'microservices-refactor': microservicesRefactorDiagram
+  'llm-explainer': '/architecture-llm-explainer.svg',
+  'iot-workflow': '/architecture-iot-workflow.svg',
+  'microservices-refactor': '/architecture-microservices-refactor.svg'
 };
 
 interface CaseStudyDetailContentProps {
