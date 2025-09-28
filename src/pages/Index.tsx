@@ -1,6 +1,7 @@
 import Navigation from '../components/Navigation';
 import Hero from '../components/Hero';
 import FeaturedProjects from '../components/FeaturedProjects';
+import OpenSourceProjects from '../components/OpenSourceProjects';
 import About from '../components/About';
 
 const Index = () => {
@@ -9,6 +10,7 @@ const Index = () => {
       <Navigation />
       <Hero />
       <FeaturedProjects />
+      <OpenSourceProjects />
       <About />
     </div>
   );
