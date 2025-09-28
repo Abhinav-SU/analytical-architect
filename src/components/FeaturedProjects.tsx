@@ -2,6 +2,7 @@ import React from 'react';
 import { motion, useInView } from 'framer-motion';
 import { ArrowRight, ExternalLink, TrendingUp } from 'lucide-react';
 import { useRef } from 'react';
+import { Link } from 'react-router-dom';
 
 interface ProjectProps {
   title: string;
@@ -36,12 +37,15 @@ const ProjectCard: React.FC<ProjectProps> = ({
       transition={{ duration: 0.8, delay }}
       className="group relative"
     >
-      <motion.a
-        href={`/work/${slug}`}
-        whileHover={{ y: -8, scale: 1.02 }}
-        transition={{ type: "spring", stiffness: 300, damping: 30 }}
-        className="block bg-card border border-border rounded-xl p-8 h-full cursor-pointer relative overflow-hidden"
+      <Link
+        to={`/work/${slug}`}
+        className="block"
       >
+        <motion.div
+          whileHover={{ y: -8, scale: 1.02 }}
+          transition={{ type: "spring", stiffness: 300, damping: 30 }}
+          className="bg-card border border-border rounded-xl p-8 h-full cursor-pointer relative overflow-hidden"
+        >
         {/* Hover Glow Effect */}
         <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-accent/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
         
@@ -102,7 +106,8 @@ const ProjectCard: React.FC<ProjectProps> = ({
 
         {/* Hover Border Effect */}
         <div className="absolute inset-0 border-2 border-primary/0 group-hover:border-primary/20 rounded-xl transition-colors duration-300" />
-      </motion.a>
+        </motion.div>
+      </Link>
     </motion.div>
   );
 };
@@ -170,15 +175,15 @@ const FeaturedProjects: React.FC = () => {
           transition={{ duration: 0.8, delay: 0.6 }}
           className="text-center mt-16"
         >
-          <motion.a
-            whileHover={{ scale: 1.05, y: -2 }}
-            whileTap={{ scale: 0.95 }}
-            href="#about"
-            className="hero-button-secondary inline-flex items-center gap-2"
-          >
-            <span>View All Projects</span>
-            <ExternalLink size={16} />
-          </motion.a>
+          <motion.div whileHover={{ scale: 1.05, y: -2 }} whileTap={{ scale: 0.95 }}>
+            <Link
+              to="/work"
+              className="hero-button-secondary inline-flex items-center gap-2"
+            >
+              <span>View All Projects</span>
+              <ExternalLink size={16} />
+            </Link>
+          </motion.div>
         </motion.div>
       </div>
     </section>

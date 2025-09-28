@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Download, ExternalLink } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 const Navigation: React.FC = () => {
   return (
@@ -17,35 +18,35 @@ const Navigation: React.FC = () => {
             whileHover={{ scale: 1.05 }}
             className="font-mono font-semibold text-xl text-primary cursor-glow"
           >
-            Abhinav Bajpai
+            <Link to="/">Abhinav Bajpai</Link>
           </motion.div>
 
           {/* Navigation Links */}
           <div className="hidden md:flex items-center space-x-8">
-            <motion.a
-              whileHover={{ scale: 1.05, y: -2 }}
-              whileTap={{ scale: 0.95 }}
-              href="#work"
-              className="text-foreground hover:text-primary transition-colors duration-200 cursor-glow"
-            >
-              Work
-            </motion.a>
-            <motion.a
-              whileHover={{ scale: 1.05, y: -2 }}
-              whileTap={{ scale: 0.95 }}
-              href="#about"
-              className="text-foreground hover:text-primary transition-colors duration-200 cursor-glow"
-            >
-              About
-            </motion.a>
-            <motion.a
-              whileHover={{ scale: 1.05, y: -2 }}
-              whileTap={{ scale: 0.95 }}
-              href="#contact"
-              className="text-foreground hover:text-primary transition-colors duration-200 cursor-glow"
-            >
-              Contact
-            </motion.a>
+            <motion.div whileHover={{ scale: 1.05, y: -2 }} whileTap={{ scale: 0.95 }}>
+              <Link
+                to="/work"
+                className="text-foreground hover:text-primary transition-colors duration-200 cursor-glow"
+              >
+                Work
+              </Link>
+            </motion.div>
+            <motion.div whileHover={{ scale: 1.05, y: -2 }} whileTap={{ scale: 0.95 }}>
+              <Link
+                to="/about"
+                className="text-foreground hover:text-primary transition-colors duration-200 cursor-glow"
+              >
+                About
+              </Link>
+            </motion.div>
+            <motion.div whileHover={{ scale: 1.05, y: -2 }} whileTap={{ scale: 0.95 }}>
+              <Link
+                to="/contact"
+                className="text-foreground hover:text-primary transition-colors duration-200 cursor-glow"
+              >
+                Contact
+              </Link>
+            </motion.div>
           </div>
 
           {/* Resume CTA */}

@@ -81,20 +81,19 @@ const About: React.FC = () => {
               </p>
             </div>
 
-            {/* Resume CTA */}
-            <motion.div className="pt-6">
-              <motion.a
-                whileHover={{ scale: 1.05, y: -2 }}
-                whileTap={{ scale: 0.95 }}
-                href="/resume.pdf"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="hero-button inline-flex items-center gap-3"
-              >
-                <Download size={20} />
-                Download Full Resume
-              </motion.a>
-            </motion.div>
+          <motion.div className="pt-6">
+            <motion.a
+              whileHover={{ scale: 1.05, y: -2 }}
+              whileTap={{ scale: 0.95 }}
+              href="/resume.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hero-button inline-flex items-center gap-3"
+            >
+              <Download size={20} />
+              Download Full Resume
+            </motion.a>
+          </motion.div>
           </motion.div>
 
           {/* Skills Section */}

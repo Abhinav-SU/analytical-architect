@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { ArrowRight, Download } from 'lucide-react';
+import { Link } from 'react-router-dom';
 import TypewriterText from './TypewriterText';
 import SystemDiagram from './SystemDiagram';
 
@@ -43,18 +44,18 @@ const Hero: React.FC = () => {
             transition={{ duration: 0.6, delay: 5 }}
             className="flex flex-col sm:flex-row items-center justify-center gap-6"
           >
-            <motion.a
-              whileHover={{ scale: 1.05, y: -2 }}
-              whileTap={{ scale: 0.95 }}
-              href="#work"
-              className="hero-button flex items-center gap-3 group"
-            >
-              View Case Studies
-              <ArrowRight 
-                size={20} 
-                className="group-hover:translate-x-1 transition-transform duration-200" 
-              />
-            </motion.a>
+            <motion.div whileHover={{ scale: 1.05, y: -2 }} whileTap={{ scale: 0.95 }}>
+              <Link
+                to="/work"
+                className="hero-button flex items-center gap-3 group"
+              >
+                View Case Studies
+                <ArrowRight 
+                  size={20} 
+                  className="group-hover:translate-x-1 transition-transform duration-200" 
+                />
+              </Link>
+            </motion.div>
 
             <motion.a
               whileHover={{ scale: 1.05, y: -2 }}

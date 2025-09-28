@@ -2,6 +2,7 @@ import React, { useRef } from 'react';
 import { motion, useInView, useScroll, useTransform } from 'framer-motion';
 import { ArrowLeft, ExternalLink, Copy, Check } from 'lucide-react';
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
 import CounterAnimation from './CounterAnimation';
 import { CaseStudy } from '../data/caseStudies';
 
@@ -43,14 +44,15 @@ const CaseStudyDetailContent: React.FC<CaseStudyDetailContentProps> = ({ caseStu
         className="fixed top-0 left-0 right-0 z-50 bg-background/90 backdrop-blur-md border-b border-border"
       >
         <div className="container mx-auto px-6 py-4">
-          <motion.a
-            whileHover={{ x: -5 }}
-            href="/"
-            className="inline-flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors"
-          >
-            <ArrowLeft size={20} />
-            Back to Portfolio
-          </motion.a>
+          <motion.div whileHover={{ x: -5 }}>
+            <Link
+              to="/"
+              className="inline-flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors"
+            >
+              <ArrowLeft size={20} />
+              Back to Portfolio
+            </Link>
+          </motion.div>
         </div>
       </motion.nav>
 
@@ -378,15 +380,15 @@ const CaseStudyDetailContent: React.FC<CaseStudyDetailContentProps> = ({ caseStu
             <h3 className="text-2xl font-bold text-foreground mb-6">
               Explore More Case Studies
             </h3>
-            <motion.a
-              whileHover={{ scale: 1.05, y: -2 }}
-              whileTap={{ scale: 0.95 }}
-              href="/#work"
-              className="hero-button inline-flex items-center gap-2"
-            >
-              View All Projects
-              <ExternalLink size={16} />
-            </motion.a>
+            <motion.div whileHover={{ scale: 1.05, y: -2 }} whileTap={{ scale: 0.95 }}>
+              <Link
+                to="/"
+                className="hero-button inline-flex items-center gap-2"
+              >
+                View All Projects
+                <ExternalLink size={16} />
+              </Link>
+            </motion.div>
           </motion.div>
         </div>
       </section>
