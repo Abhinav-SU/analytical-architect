@@ -117,25 +117,35 @@ const Hero: React.FC = () => {
         </motion.div>
       </div>
 
-      {/* Scroll Indicator */}
+      {/* Scroll Indicator - Fixed positioning and clickable */}
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.6, delay: 1.8 }}
         style={{ opacity: scrollIndicatorOpacity }}
-        className="absolute bottom-6 left-1/2 transform -translate-x-1/2 z-20"
+        className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-30 cursor-pointer"
+        onClick={() => {
+          const nextSection = document.getElementById('work');
+          if (nextSection) {
+            nextSection.scrollIntoView({ behavior: 'smooth' });
+          }
+        }}
       >
         <motion.div
-          animate={{ y: [0, 10, 0] }}
+          animate={{ y: [0, 8, 0] }}
           transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
-          className="w-6 h-10 border-2 border-primary rounded-full flex justify-center"
+          className="w-6 h-10 border-2 border-primary rounded-full flex justify-center hover:border-accent transition-colors duration-300"
         >
           <motion.div
             animate={{ y: [0, 12, 0] }}
             transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
-            className="w-1 h-3 bg-primary rounded-full mt-2"
+            className="w-1 h-3 bg-primary rounded-full mt-2 hover:bg-accent transition-colors duration-300"
           />
         </motion.div>
+        {/* Tooltip */}
+        <div className="absolute -top-12 left-1/2 transform -translate-x-1/2 bg-popover text-popover-foreground px-3 py-1 rounded-lg text-sm font-medium opacity-0 hover:opacity-100 transition-opacity duration-200 pointer-events-none whitespace-nowrap border border-border">
+          Scroll to projects
+        </div>
       </motion.div>
     </section>
   );

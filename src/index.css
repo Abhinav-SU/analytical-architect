@@ -11,19 +11,19 @@
     --background: 220 13% 9%;
     --foreground: 220 9% 96%;
 
-    /* Technical Brand Colors */
-    --primary: 142 76% 36%;
+    /* Technical Brand Colors - Improved Professional Palette */
+    --primary: 200 95% 65%;        /* Modern blue instead of harsh green */
     --primary-foreground: 220 13% 9%;
-    --primary-glow: 142 76% 56%;
+    --primary-glow: 200 95% 75%;
 
     /* Secondary System Colors */
     --secondary: 220 13% 18%;
     --secondary-foreground: 220 9% 96%;
 
-    /* Accent & Highlighting */
-    --accent: 45 93% 58%;
+    /* Accent & Highlighting - Subtle gold instead of bright yellow */
+    --accent: 35 80% 55%;          /* Professional gold accent */
     --accent-foreground: 220 13% 9%;
-    --accent-glow: 45 93% 78%;
+    --accent-glow: 35 80% 65%;
 
     /* UI Framework Colors */
     --muted: 220 13% 15%;
@@ -43,13 +43,13 @@
     --destructive: 0 72% 51%;
     --destructive-foreground: 220 9% 96%;
 
-    --success: 142 76% 36%;
+    --success: 160 84% 39%;        /* Professional teal for success */
     --success-foreground: 220 13% 9%;
 
     /* Technical Code Colors */
     --code-bg: 220 13% 12%;
     --code-border: 220 13% 25%;
-    --code-text: 45 93% 58%;
+    --code-text: 200 95% 75%;      /* Blue code text instead of yellow */
 
     /* Performance Gradients */
     --gradient-primary: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--primary-glow)));
