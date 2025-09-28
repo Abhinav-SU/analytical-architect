@@ -1,0 +1,119 @@
+<svg viewBox="0 0 1200 600" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style>
+      .diagram-text { fill: #e2e8f0; font-family: 'JetBrains Mono', monospace; font-size: 14px; }
+      .diagram-title { fill: #10b981; font-family: 'JetBrains Mono', monospace; font-size: 16px; font-weight: 600; }
+      .diagram-box { fill: #1e293b; stroke: #10b981; stroke-width: 2; rx: 8; }
+      .diagram-flow { fill: none; stroke: #10b981; stroke-width: 2; marker-end: url(#arrowhead); }
+      .diagram-event { fill: none; stroke: #f59e0b; stroke-width: 2; stroke-dasharray: 5,5; marker-end: url(#arrowhead-event); }
+      .diagram-azure { fill: #0f172a; stroke: #3b82f6; stroke-width: 2; rx: 4; }
+      .diagram-iot { fill: #4c1d95; stroke: #8b5cf6; stroke-width: 2; rx: 4; }
+    </style>
+    <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#10b981"/>
+    </marker>
+    <marker id="arrowhead-event" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#f59e0b"/>
+    </marker>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="1200" height="600" fill="#020617" stroke="#334155" stroke-width="1"/>
+  
+  <!-- Title -->
+  <text x="600" y="40" class="diagram-title" text-anchor="middle">Scalable IoT Device Workflow Architecture</text>
+  
+  <!-- IoT Devices -->
+  <rect x="50" y="80" width="150" height="60" class="diagram-iot"/>
+  <text x="125" y="105" class="diagram-title" text-anchor="middle">IoT Devices</text>
+  <text x="125" y="125" class="diagram-text" text-anchor="middle">15,000+ Units</text>
+  
+  <rect x="50" y="160" width="150" height="60" class="diagram-iot"/>
+  <text x="125" y="185" class="diagram-title" text-anchor="middle">Device Gateway</text>
+  <text x="125" y="205" class="diagram-text" text-anchor="middle">Protocol Bridge</text>
+  
+  <!-- API Gateway -->
+  <rect x="280" y="120" width="150" height="60" class="diagram-box"/>
+  <text x="355" y="145" class="diagram-title" text-anchor="middle">API Gateway</text>
+  <text x="355" y="165" class="diagram-text" text-anchor="middle">Load Balancer</text>
+  
+  <!-- Device Service -->
+  <rect x="500" y="80" width="150" height="60" class="diagram-box"/>
+  <text x="575" y="105" class="diagram-title" text-anchor="middle">Device Service</text>
+  <text x="575" y="125" class="diagram-text" text-anchor="middle">Spring Boot</text>
+  
+  <!-- Workflow Service -->
+  <rect x="500" y="160" width="150" height="60" class="diagram-box"/>
+  <text x="575" y="185" class="diagram-title" text-anchor="middle">Workflow Service</text>
+  <text x="575" y="205" class="diagram-text" text-anchor="middle">Event Processing</text>
+  
+  <!-- Compliance Service -->
+  <rect x="500" y="240" width="150" height="60" class="diagram-box"/>
+  <text x="575" y="265" class="diagram-title" text-anchor="middle">Compliance Service</text>
+  <text x="575" y="285" class="diagram-text" text-anchor="middle">SOC 2 Validation</text>
+  
+  <!-- Azure Logic Apps -->
+  <rect x="720" y="120" width="150" height="60" class="diagram-azure"/>
+  <text x="795" y="140" class="diagram-title" text-anchor="middle">Azure Logic Apps</text>
+  <text x="795" y="155" class="diagram-text" text-anchor="middle">Workflow</text>
+  <text x="795" y="170" class="diagram-text" text-anchor="middle">Orchestration</text>
+  
+  <!-- Azure Service Bus -->
+  <rect x="720" y="200" width="150" height="60" class="diagram-azure"/>
+  <text x="795" y="225" class="diagram-title" text-anchor="middle">Service Bus</text>
+  <text x="795" y="245" class="diagram-text" text-anchor="middle">Event Streaming</text>
+  
+  <!-- Monitoring -->
+  <rect x="950" y="80" width="150" height="60" class="diagram-azure"/>
+  <text x="1025" y="105" class="diagram-title" text-anchor="middle">Azure Monitor</text>
+  <text x="1025" y="125" class="diagram-text" text-anchor="middle">99.9% Uptime</text>
+  
+  <!-- Database -->
+  <rect x="950" y="160" width="150" height="60" class="diagram-azure"/>
+  <text x="1025" y="185" class="diagram-title" text-anchor="middle">Azure SQL</text>
+  <text x="1025" y="205" class="diagram-text" text-anchor="middle">Device Metadata</Text>
+  
+  <!-- Compliance Dashboard -->
+  <rect x="950" y="240" width="150" height="60" class="diagram-azure"/>
+  <text x="1025" y="265" class="diagram-title" text-anchor="middle">Compliance</text>
+  <text x="1025" y="285" class="diagram-text" text-anchor="middle">Dashboard</text>
+  
+  <!-- Arrows -->
+  <line x1="200" y1="110" x2="280" y2="150" class="diagram-flow"/>
+  <line x1="200" y1="190" x2="280" y2="150" class="diagram-flow"/>
+  
+  <line x1="430" y1="150" x2="500" y2="110" class="diagram-flow"/>
+  <line x1="430" y1="150" x2="500" y2="190" class="diagram-flow"/>
+  <line x1="430" y1="150" x2="500" y2="270" class="diagram-flow"/>
+  
+  <line x1="650" y1="110" x2="720" y2="150" class="diagram-flow"/>
+  <line x1="650" y1="190" x2="720" y2="150" class="diagram-flow"/>
+  <line x1="650" y1="270" x2="720" y2="230" class="diagram-flow"/>
+  
+  <line x1="870" y1="150" x2="950" y2="110" class="diagram-flow"/>
+  <line x1="870" y1="150" x2="950" y2="190" class="diagram-flow"/>
+  <line x1="870" y1="230" x2="950" y2="270" class="diagram-flow"/>
+  
+  <!-- Event flows -->
+  <path d="M 575 140 Q 650 180 720 230" class="diagram-event"/>
+  <path d="M 575 220 Q 650 250 720 230" class="diagram-event"/>
+  
+  <!-- Performance Metrics -->
+  <rect x="50" y="380" width="350" height="140" class="diagram-azure"/>
+  <text x="225" y="405" class="diagram-title" text-anchor="middle">Business Impact Metrics</text>
+  <text x="80" y="430" class="diagram-text">• 30-60% reduction in operational costs</text>
+  <text x="80" y="450" class="diagram-text">• 99.9% system uptime achieved</text>
+  <text x="80" y="470" class="diagram-text">• SOC 2 Type II compliance in 6 months</text>
+  <text x="80" y="490" class="diagram-text">• Scaled from 1K to 15K managed devices</text>
+  <text x="80" y="510" class="diagram-text">• 40% faster development with Logic Apps</text>
+  
+  <!-- Technology Stack -->
+  <rect x="450" y="380" width="350" height="140" class="diagram-box"/>
+  <text x="625" y="405" class="diagram-title" text-anchor="middle">Technology Stack</text>
+  <text x="480" y="430" class="diagram-text">• Java Spring Boot Microservices</text>
+  <text x="480" y="450" class="diagram-text">• Azure Logic Apps (Workflow)</text>
+  <text x="480" y="470" class="diagram-text">• Azure Service Bus (Messaging)</text>
+  <text x="480" y="490" class="diagram-text">• Docker & Jenkins (CI/CD)</text>
+  <text x="480" y="510" class="diagram-text">• Azure Monitor & SQL Database</text>
+  
+</svg>

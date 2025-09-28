@@ -1,0 +1,102 @@
+<svg viewBox="0 0 1200 600" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style>
+      .diagram-text { fill: #e2e8f0; font-family: 'JetBrains Mono', monospace; font-size: 14px; }
+      .diagram-title { fill: #10b981; font-family: 'JetBrains Mono', monospace; font-size: 16px; font-weight: 600; }
+      .diagram-box { fill: #1e293b; stroke: #10b981; stroke-width: 2; rx: 8; }
+      .diagram-flow { fill: none; stroke: #10b981; stroke-width: 2; marker-end: url(#arrowhead); }
+      .diagram-data { fill: none; stroke: #f59e0b; stroke-width: 2; stroke-dasharray: 5,5; marker-end: url(#arrowhead-data); }
+      .diagram-storage { fill: #0f172a; stroke: #3b82f6; stroke-width: 2; rx: 4; }
+    </style>
+    <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#10b981"/>
+    </marker>
+    <marker id="arrowhead-data" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#f59e0b"/>
+    </marker>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="1200" height="600" fill="#020617" stroke="#334155" stroke-width="1"/>
+  
+  <!-- Title -->
+  <text x="600" y="40" class="diagram-title" text-anchor="middle">LLM-Powered Codebase Explainer Architecture</text>
+  
+  <!-- Repository -->
+  <rect x="50" y="100" width="180" height="80" class="diagram-box"/>
+  <text x="140" y="130" class="diagram-title" text-anchor="middle">Code Repository</text>
+  <text x="140" y="150" class="diagram-text" text-anchor="middle">Git/GitHub</text>
+  <text x="140" y="165" class="diagram-text" text-anchor="middle">Java/Python</text>
+  
+  <!-- Parsing Service -->
+  <rect x="300" y="100" width="180" height="80" class="diagram-box"/>
+  <text x="390" y="125" class="diagram-title" text-anchor="middle">Code Parser</text>
+  <text x="390" y="145" class="diagram-text" text-anchor="middle">AST Analysis</text>
+  <text x="390" y="160" class="diagram-text" text-anchor="middle">Metadata Extraction</text>
+  
+  <!-- Embedding Service -->
+  <rect x="550" y="100" width="180" height="80" class="diagram-box"/>
+  <text x="640" y="125" class="diagram-title" text-anchor="middle">Embedding Engine</text>
+  <text x="640" y="145" class="diagram-text" text-anchor="middle">LlamaIndex</text>
+  <text x="640" y="160" class="diagram-text" text-anchor="middle">Vector Generation</text>
+  
+  <!-- PostgreSQL Database -->
+  <rect x="300" y="250" width="180" height="80" class="diagram-storage"/>
+  <text x="390" y="275" class="diagram-title" text-anchor="middle">PostgreSQL</text>
+  <text x="390" y="295" class="diagram-text" text-anchor="middle">Vector Store</text>
+  <text x="390" y="310" class="diagram-text" text-anchor="middle">Metadata Cache</text>
+  
+  <!-- Redis Cache -->
+  <rect x="550" y="250" width="180" height="80" class="diagram-storage"/>
+  <text x="640" y="275" class="diagram-title" text-anchor="middle">Redis Cache</text>
+  <text x="640" y="295" class="diagram-text" text-anchor="middle">Query Results</text>
+  <text x="640" y="310" class="diagram-text" text-anchor="middle">25-30% Cost Reduction</text>
+  
+  <!-- FastAPI Service -->
+  <rect x="800" y="100" width="180" height="80" class="diagram-box"/>
+  <text x="890" y="125" class="diagram-title" text-anchor="middle">FastAPI Service</text>
+  <text x="890" y="145" class="diagram-text" text-anchor="middle">RAG Orchestration</text>
+  <text x="890" y="160" class="diagram-text" text-anchor="middle">Query Routing</text>
+  
+  <!-- LLM Services -->
+  <rect x="750" y="250" width="130" height="80" class="diagram-box"/>
+  <text x="815" y="275" class="diagram-title" text-anchor="middle">OpenAI</text>
+  <text x="815" y="295" class="diagram-text" text-anchor="middle">GPT-4</text>
+  <text x="815" y="310" class="diagram-text" text-anchor="middle">Embeddings</text>
+  
+  <rect x="920" y="250" width="130" height="80" class="diagram-box"/>
+  <text x="985" y="275" class="diagram-title" text-anchor="middle">Google</text>
+  <text x="985" y="295" class="diagram-text" text-anchor="middle">Gemini</text>
+  <text x="985" y="310" class="diagram-text" text-anchor="middle">Alternative LLM</text>
+  
+  <!-- Streamlit UI -->
+  <rect x="800" y="400" width="180" height="80" class="diagram-box"/>
+  <text x="890" y="425" class="diagram-title" text-anchor="middle">Streamlit UI</text>
+  <text x="890" y="445" class="diagram-text" text-anchor="middle">Developer Interface</text>
+  <text x="890" y="460" class="diagram-text" text-anchor="middle">Query Input</text>
+  
+  <!-- Arrows -->
+  <line x1="230" y1="140" x2="300" y2="140" class="diagram-flow"/>
+  <line x1="480" y1="140" x2="550" y2="140" class="diagram-flow"/>
+  <line x1="730" y1="140" x2="800" y2="140" class="diagram-flow"/>
+  
+  <line x1="390" y1="180" x2="390" y2="250" class="diagram-flow"/>
+  <line x1="640" y1="180" x2="640" y2="250" class="diagram-flow"/>
+  
+  <line x1="890" y1="180" x2="890" y2="400" class="diagram-flow"/>
+  <line x1="890" y1="180" x2="815" y2="250" class="diagram-flow"/>
+  <line x1="890" y1="180" x2="985" y2="250" class="diagram-flow"/>
+  
+  <!-- Data flows -->
+  <line x1="480" y1="290" x2="550" y2="290" class="diagram-data"/>
+  <line x1="730" y1="290" x2="800" y2="140" class="diagram-data"/>
+  
+  <!-- Performance Metrics -->
+  <rect x="50" y="400" width="280" height="120" class="diagram-storage"/>
+  <text x="190" y="425" class="diagram-title" text-anchor="middle">Performance Impact</text>
+  <text x="80" y="450" class="diagram-text">• 30-40% faster onboarding</text>
+  <text x="80" y="470" class="diagram-text">• 25-30% cost reduction</text>
+  <text x="80" y="490" class="diagram-text">• 99.2% query accuracy</text>
+  <text x="80" y="510" class="diagram-text">• 60% less mentoring time</text>
+  
+</svg>

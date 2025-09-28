@@ -54,17 +54,26 @@ const About: React.FC = () => {
             transition={{ duration: 0.8, delay: 0.2 }}
             className="space-y-6"
           >
-            {/* Profile Image Placeholder */}
+            {/* Profile Image */}
             <motion.div
               whileHover={{ scale: 1.05 }}
-              className="w-48 h-48 mx-auto lg:mx-0 rounded-2xl bg-gradient-to-br from-primary/20 to-accent/20 border border-border flex items-center justify-center mb-8"
+              className="w-48 h-48 mx-auto lg:mx-0 rounded-2xl bg-gradient-to-br from-primary/20 to-accent/20 border border-border flex items-center justify-center mb-8 overflow-hidden"
             >
-              <User size={80} className="text-primary/60" />
+              {/* Professional headshot placeholder */}
+              <div className="w-full h-full bg-gradient-to-br from-primary/10 to-accent/10 flex items-center justify-center">
+                <User size={80} className="text-primary/60" />
+              </div>
+              {/* TODO: Replace with actual professional headshot */}
+              {/* <img 
+                src="/headshot-abhinav-bajpai.jpg" 
+                alt="Abhinav Bajpai - Software Developer"
+                className="w-full h-full object-cover"
+              /> */}
             </motion.div>
 
             <div className="space-y-4 text-muted-foreground leading-relaxed">
               <p>
-                I am a <strong className="text-foreground">Software Engineer</strong> focused on designing and implementing scalable backend systems and advanced AI integrations. My background at TCS built a deep foundation in high-throughput Java/Spring microservices, which I now combine with cutting-edge expertise in Python, LLMs (OpenAI, Gemini), and cloud architecture (AWS, Azure) to drive business efficiency.
+                I am a <strong className="text-foreground">Software Developer</strong> focused on designing and implementing scalable backend systems and advanced AI integrations. My background at TCS built a deep foundation in high-throughput Java/Spring microservices, which I now combine with cutting-edge expertise in Python, LLMs (OpenAI, Gemini), and cloud architecture (AWS, Azure) to drive business efficiency.
               </p>
               
               <p>
@@ -165,7 +174,7 @@ const About: React.FC = () => {
             </h3>
             <p className="text-muted-foreground mb-6">
               Interested in discussing scalable architecture, AI integration, or system optimization? 
-              I'm always open to connecting with fellow engineers and technical leaders.
+              I'm always open to connecting with fellow developers and technical leaders.
             </p>
             
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">

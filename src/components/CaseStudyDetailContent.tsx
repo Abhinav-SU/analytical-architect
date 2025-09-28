@@ -160,16 +160,15 @@ const CaseStudyDetailContent: React.FC<CaseStudyDetailContentProps> = ({ caseStu
                 className="sticky top-20 z-10 mb-16"
               >
                 <div className="bg-card border border-border rounded-2xl p-8 shadow-elegant">
-                  {/* Placeholder for architecture diagram */}
-                  <div className="aspect-video bg-gradient-to-br from-primary/10 to-accent/10 rounded-xl border border-primary/20 flex items-center justify-center">
-                    <div className="text-center">
-                      <div className="w-16 h-16 bg-primary/20 rounded-lg mx-auto mb-4 flex items-center justify-center">
-                        <ExternalLink className="text-primary" size={32} />
-                      </div>
-                      <p className="text-primary font-semibold">Architecture Diagram</p>
-                      <p className="text-sm text-muted-foreground">{caseStudy.architectureDiagram}</p>
-                    </div>
-                  </div>
+              {/* Placeholder for architecture diagram */}
+              <div className="aspect-video bg-gradient-to-br from-primary/5 to-accent/5 rounded-xl border border-primary/10 flex items-center justify-center overflow-hidden">
+                <img 
+                  src={caseStudy.architectureDiagram} 
+                  alt={`${caseStudy.title} Architecture Diagram`}
+                  className="w-full h-full object-contain"
+                  style={{ filter: 'brightness(0.9)' }}
+                />
+              </div>
                 </div>
               </motion.div>
 

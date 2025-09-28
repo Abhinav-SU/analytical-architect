@@ -1,0 +1,133 @@
+<svg viewBox="0 0 1200 600" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style>
+      .diagram-text { fill: #e2e8f0; font-family: 'JetBrains Mono', monospace; font-size: 14px; }
+      .diagram-title { fill: #10b981; font-family: 'JetBrains Mono', monospace; font-size: 16px; font-weight: 600; }
+      .diagram-box { fill: #1e293b; stroke: #10b981; stroke-width: 2; rx: 8; }
+      .diagram-flow { fill: none; stroke: #10b981; stroke-width: 2; marker-end: url(#arrowhead); }
+      .diagram-cache { fill: none; stroke: #f59e0b; stroke-width: 3; marker-end: url(#arrowhead-cache); }
+      .diagram-legacy { fill: #7f1d1d; stroke: #ef4444; stroke-width: 2; rx: 4; }
+      .diagram-storage { fill: #0f172a; stroke: #3b82f6; stroke-width: 2; rx: 4; }
+    </style>
+    <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#10b981"/>
+    </marker>
+    <marker id="arrowhead-cache" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#f59e0b"/>
+    </marker>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="1200" height="600" fill="#020617" stroke="#334155" stroke-width="1"/>
+  
+  <!-- Title -->
+  <text x="600" y="40" class="diagram-title" text-anchor="middle">High-Throughput Microservices Architecture</text>
+  
+  <!-- Legacy System (Before) -->
+  <rect x="50" y="80" width="200" height="100" class="diagram-legacy"/>
+  <text x="150" y="105" class="diagram-title" text-anchor="middle">Legacy Monolith</text>
+  <text x="150" y="125" class="diagram-text" text-anchor="middle">6-hour report generation</text>
+  <text x="150" y="145" class="diagram-text" text-anchor="middle">Single point of failure</text>
+  <text x="150" y="165" class="diagram-text" text-anchor="middle">Difficult to scale</text>
+  
+  <!-- API Gateway -->
+  <rect x="350" y="80" width="150" height="60" class="diagram-box"/>
+  <text x="425" y="105" class="diagram-title" text-anchor="middle">API Gateway</text>
+  <text x="425" y="125" class="diagram-text" text-anchor="middle">Load Balancer</text>
+  
+  <!-- Microservices Layer -->
+  <rect x="580" y="60" width="120" height="50" class="diagram-box"/>
+  <text x="640" y="80" class="diagram-title" text-anchor="middle">Data Service</text>
+  <text x="640" y="95" class="diagram-text" text-anchor="middle">Spring Boot</text>
+  
+  <rect x="580" y="120" width="120" height="50" class="diagram-box"/>
+  <text x="640" y="140" class="diagram-title" text-anchor="middle">Report Service</text>
+  <text x="640" y="155" class="diagram-text" text-anchor="middle">Spring Batch</text>
+  
+  <rect x="580" y="180" width="120" height="50" class="diagram-box"/>
+  <text x="640" y="200" class="diagram-title" text-anchor="middle">Cache Service</text>
+  <text x="640" y="215" class="diagram-text" text-anchor="middle">Redis</text>
+  
+  <rect x="580" y="240" width="120" height="50" class="diagram-box"/>
+  <text x="640" y="260" class="diagram-title" text-anchor="middle">Auth Service</text>
+  <text x="640" y="275" class="diagram-text" text-anchor="middle">JWT</text>
+  
+  <!-- Distributed Cache -->
+  <rect x="780" y="120" width="150" height="80" class="diagram-storage"/>
+  <text x="855" y="145" class="diagram-title" text-anchor="middle">Redis Cluster</text>
+  <text x="855" y="165" class="diagram-text" text-anchor="middle">Distributed Cache</text>
+  <text x="855" y="185" class="diagram-text" text-anchor="middle">80% Faster Queries</text>
+  
+  <!-- Message Queue -->
+  <rect x="780" y="220" width="150" height="60" class="diagram-storage"/>
+  <text x="855" y="245" class="diagram-title" text-anchor="middle">Apache Kafka</text>
+  <text x="855" y="265" class="diagram-text" text-anchor="middle">Event Streaming</text>
+  
+  <!-- Database Layer -->
+  <rect x="1000" y="60" width="120" height="50" class="diagram-storage"/>
+  <text x="1060" y="80" class="diagram-text" text-anchor="middle">User DB</text>
+  <text x="1060" y="95" class="diagram-text" text-anchor="middle">PostgreSQL</text>
+  
+  <rect x="1000" y="120" width="120" height="50" class="diagram-storage"/>
+  <text x="1060" y="140" class="diagram-text" text-anchor="middle">Report DB</text>
+  <text x="1060" y="155" class="diagram-text" text-anchor="middle">PostgreSQL</text>
+  
+  <rect x="1000" y="180" width="120" height="50" class="diagram-storage"/>
+  <text x="1060" y="200" class="diagram-text" text-anchor="middle">Analytics DB</text>
+  <text x="1060" y="215" class="diagram-text" text-anchor="middle">PostgreSQL</text>
+  
+  <!-- Blue-Green Deployment -->
+  <rect x="1000" y="240" width="120" height="50" class="diagram-box"/>
+  <text x="1060" y="260" class="diagram-title" text-anchor="middle">Blue-Green</text>
+  <text x="1060" y="275" class="diagram-text" text-anchor="middle">Deployment</text>
+  
+  <!-- Arrows from Legacy to Gateway -->
+  <line x1="250" y1="130" x2="350" y2="110" class="diagram-flow"/>
+  
+  <!-- Arrows from Gateway to Services -->
+  <line x1="500" y1="110" x2="580" y2="85" class="diagram-flow"/>
+  <line x1="500" y1="110" x2="580" y2="145" class="diagram-flow"/>
+  <line x1="500" y1="110" x2="580" y2="205" class="diagram-flow"/>
+  <line x1="500" y1="110" x2="580" y2="265" class="diagram-flow"/>
+  
+  <!-- Cache connections -->
+  <line x1="700" y1="145" x2="780" y2="160" class="diagram-cache"/>
+  <line x1="700" y1="205" x2="780" y2="160" class="diagram-cache"/>
+  
+  <!-- Service to DB connections -->
+  <line x1="700" y1="85" x2="1000" y2="85" class="diagram-flow"/>
+  <line x1="700" y1="145" x2="1000" y2="145" class="diagram-flow"/>
+  <line x1="700" y1="145" x2="1000" y2="205" class="diagram-flow"/>
+  
+  <!-- Kafka connections -->
+  <line x1="700" y1="205" x2="780" y2="250" class="diagram-flow"/>
+  <line x1="700" y1="265" x2="780" y2="250" class="diagram-flow"/>
+  
+  <!-- Performance Comparison -->
+  <rect x="50" y="250" width="280" height="140" class="diagram-box"/>
+  <text x="190" y="275" class="diagram-title" text-anchor="middle">Performance Impact</text>
+  <text x="80" y="300" class="diagram-text">BEFORE (Monolith):</text>
+  <text x="80" y="320" class="diagram-text">• 6 hours report generation</text>
+  <text x="80" y="340" class="diagram-text">• Single point of failure</text>
+  <text x="190" y="365" class="diagram-title" text-anchor="middle">AFTER (Microservices):</text>
+  <text x="80" y="385" class="diagram-text">• 1.2 hours (80% improvement)</text>
+  
+  <!-- Deployment Strategy -->
+  <rect x="350" y="320" width="280" height="140" class="diagram-storage"/>
+  <text x="490" y="345" class="diagram-title" text-anchor="middle">Blue-Green Deployment</text>
+  <text x="380" y="370" class="diagram-text">• Zero-downtime deployments</text>
+  <text x="380" y="390" class="diagram-text">• Instant rollback capability</text>
+  <text x="380" y="410" class="diagram-text">• 99.99% availability</text>
+  <text x="380" y="430" class="diagram-text">• 2x infrastructure cost</text>
+  <text x="380" y="450" class="diagram-text">• Worth it for mission-critical</text>
+  
+  <!-- Technology Benefits -->
+  <rect x="650" y="320" width="280" height="140" class="diagram-box"/>
+  <text x="790" y="345" class="diagram-title" text-anchor="middle">Technical Achievements</text>
+  <text x="680" y="370" class="diagram-text">• 12 specialized microservices</text>
+  <text x="680" y="390" class="diagram-text">• Redis distributed caching</text>
+  <text x="680" y="410" class="diagram-text">• Kafka event streaming</text>
+  <text x="680" y="430" class="diagram-text">• Docker containerization</text>
+  <text x="680" y="450" class="diagram-text">• 60% infrastructure savings</text>
+  
+</svg>

@@ -19,7 +19,7 @@ const Hero: React.FC = () => {
           {/* Title with Typewriter Effect */}
           <div className="mb-8">
             <TypewriterText
-              text="The Systemic Engineer: I build scalable microservices and LLM applications that turn architectural complexity into quantifiable business efficiency and product innovation."
+              text="The Systemic Developer: I build scalable microservices and LLM applications that turn architectural complexity into quantifiable business efficiency and product innovation."
               delay={1000}
               speed={40}
               className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight text-foreground"
@@ -33,7 +33,7 @@ const Hero: React.FC = () => {
             transition={{ duration: 0.6, delay: 4.5 }}
             className="text-xl md:text-2xl text-muted-foreground mb-12 max-w-3xl mx-auto"
           >
-            Software Engineer specializing in backend systems, AI integration, and cloud architecture that delivers measurable business impact.
+            Software Developer specializing in backend systems, AI integration, and cloud architecture that delivers measurable business impact.
           </motion.p>
 
           {/* CTA Buttons */}
