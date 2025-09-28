@@ -23,6 +23,11 @@ const ProjectCard: React.FC<ProjectProps> = ({
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-10%" });
 
+  // Create slug from title for routing
+  const slug = title.toLowerCase()
+    .replace(/[^a-z0-9]+/g, '-')
+    .replace(/(^-|-$)/g, '');
+
   return (
     <motion.div
       ref={ref}
@@ -31,10 +36,11 @@ const ProjectCard: React.FC<ProjectProps> = ({
       transition={{ duration: 0.8, delay }}
       className="group relative"
     >
-      <motion.div
+      <motion.a
+        href={`/work/${slug}`}
         whileHover={{ y: -8, scale: 1.02 }}
         transition={{ type: "spring", stiffness: 300, damping: 30 }}
-        className="bg-card border border-border rounded-xl p-8 h-full cursor-pointer relative overflow-hidden"
+        className="block bg-card border border-border rounded-xl p-8 h-full cursor-pointer relative overflow-hidden"
       >
         {/* Hover Glow Effect */}
         <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-accent/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
@@ -96,7 +102,7 @@ const ProjectCard: React.FC<ProjectProps> = ({
 
         {/* Hover Border Effect */}
         <div className="absolute inset-0 border-2 border-primary/0 group-hover:border-primary/20 rounded-xl transition-colors duration-300" />
-      </motion.div>
+      </motion.a>
     </motion.div>
   );
 };
