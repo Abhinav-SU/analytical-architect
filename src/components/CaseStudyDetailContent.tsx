@@ -162,7 +162,6 @@ const CaseStudyDetailContent: React.FC<CaseStudyDetailContentProps> = ({ caseStu
                 className="sticky top-20 z-10 mb-16"
               >
                 <div className="bg-card border border-border rounded-2xl p-8 shadow-elegant">
-              {/* Placeholder for architecture diagram */}
               <div className="aspect-video bg-gradient-to-br from-primary/5 to-accent/5 rounded-xl border border-primary/10 flex items-center justify-center overflow-hidden">
                 <img 
                   src={caseStudy.architectureDiagram} 

@@ -37,7 +37,7 @@ const Contact: React.FC = () => {
               
               <motion.a
                 whileHover={{ scale: 1.02, x: 5 }}
-                href="mailto:abhinav@example.com"
+                href="mailto:work@abhinavbajpai.online"
                 className="flex items-center gap-4 p-6 bg-card border border-border rounded-xl hover:border-primary/20 transition-colors cursor-glow"
               >
                 <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center">
@@ -45,13 +45,13 @@ const Contact: React.FC = () => {
                 </div>
                 <div>
                   <h3 className="font-semibold text-foreground">Email</h3>
-                  <p className="text-primary">abhinav@example.com</p>
+                  <p className="text-primary">work@abhinavbajpai.online</p>
                 </div>
               </motion.a>
 
               <motion.a
                 whileHover={{ scale: 1.02, x: 5 }}
-                href="https://linkedin.com/in/abhinav-bajpai"
+                href="https://linkedin.com/in/abhinavbajpai96"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center gap-4 p-6 bg-card border border-border rounded-xl hover:border-primary/20 transition-colors cursor-glow"
@@ -68,7 +68,7 @@ const Contact: React.FC = () => {
 
               <motion.a
                 whileHover={{ scale: 1.02, x: 5 }}
-                href="https://github.com/abhinav-bajpai"
+                href="https://github.com/Abhinav-SU"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center gap-4 p-6 bg-card border border-border rounded-xl hover:border-primary/20 transition-colors cursor-glow"
@@ -146,7 +146,7 @@ const Contact: React.FC = () => {
                 <motion.a
                   whileHover={{ scale: 1.05, y: -2 }}
                   whileTap={{ scale: 0.95 }}
-                  href="mailto:abhinav@example.com"
+                  href="mailto:work@abhinavbajpai.online"
                   className="hero-button"
                 >
                   Start a Conversation
@@ -155,7 +155,7 @@ const Contact: React.FC = () => {
                 <motion.a
                   whileHover={{ scale: 1.05, y: -2 }}
                   whileTap={{ scale: 0.95 }}
-                  href="/resume.pdf"
+                  href="/Abhinav_Resume.pdf"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="hero-button-secondary"

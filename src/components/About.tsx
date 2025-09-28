@@ -81,7 +81,7 @@ const About: React.FC = () => {
             <motion.a
               whileHover={{ scale: 1.05, y: -2 }}
               whileTap={{ scale: 0.95 }}
-              href="/resume.pdf"
+              href="/Abhinav_Resume.pdf"
               target="_blank"
               rel="noopener noreferrer"
               className="hero-button inline-flex items-center gap-3"
@@ -176,7 +176,7 @@ const About: React.FC = () => {
               <motion.a
                 whileHover={{ scale: 1.05, y: -2 }}
                 whileTap={{ scale: 0.95 }}
-                href="mailto:abhinav@example.com"
+                href="mailto:work@abhinavbajpai.online"
                 className="hero-button"
               >
                 Get In Touch
@@ -185,7 +185,7 @@ const About: React.FC = () => {
               <motion.a
                 whileHover={{ scale: 1.05, y: -2 }}
                 whileTap={{ scale: 0.95 }}
-                href="https://linkedin.com/in/abhinav-bajpai"
+                href="https://linkedin.com/in/abhinavbajpai96"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="hero-button-secondary"
