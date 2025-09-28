@@ -18,12 +18,12 @@ const Hero: React.FC = () => {
           className="max-w-4xl mx-auto"
         >
           {/* Title with Typewriter Effect */}
-          <div className="mb-8">
+          <div className="mb-8 max-w-4xl md:max-w-5xl mx-auto text-center">
             <TypewriterText
               text="The Systemic Developer: I build scalable microservices and LLM applications that turn architectural complexity into quantifiable business efficiency and product innovation."
               delay={1000}
               speed={40}
-              className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight text-foreground"
+              className="text-4xl md:text-5xl lg:text-6xl font-bold leading-snug text-foreground"
             />
           </div>
 
