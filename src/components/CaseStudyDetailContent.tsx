@@ -170,27 +170,19 @@ const CaseStudyDetailContent: React.FC<CaseStudyDetailContentProps> = ({ caseStu
               >
                 <div className="bg-card border border-border rounded-2xl p-8 shadow-elegant">
                   <div className="w-full bg-background rounded-xl border border-primary/20 p-6 min-h-[400px] flex items-center justify-center">
-                    {/* Debug info */}
-                    <div className="mb-4 text-sm text-muted-foreground">
-                      <p>Diagram key: {caseStudy.architectureDiagram}</p>
-                      <p>Resolved path: {architectureDiagrams[caseStudy.architectureDiagram]}</p>
-                    </div>
                     <img 
                       src={architectureDiagrams[caseStudy.architectureDiagram]} 
                       alt={`${caseStudy.title} Architecture Diagram`}
                       className="max-w-full max-h-full object-contain"
                       style={{ maxHeight: '400px' }}
                       onError={(e) => {
-                        console.error('Failed to load diagram:', caseStudy.architectureDiagram, 'Path:', architectureDiagrams[caseStudy.architectureDiagram]);
+                        console.error('Failed to load diagram:', architectureDiagrams[caseStudy.architectureDiagram]);
                         const target = e.target as HTMLImageElement;
                         target.style.display = 'none';
                         const fallback = document.createElement('div');
                         fallback.className = 'text-muted-foreground text-center p-8';
-                        fallback.innerHTML = `<p>Architecture diagram failed to load</p><p class="text-xs mt-2">Path: ${architectureDiagrams[caseStudy.architectureDiagram]}</p>`;
+                        fallback.innerHTML = '<p>Architecture diagram temporarily unavailable</p>';
                         target.parentElement?.appendChild(fallback);
-                      }}
-                      onLoad={() => {
-                        console.log('Diagram loaded successfully:', caseStudy.architectureDiagram, 'Path:', architectureDiagrams[caseStudy.architectureDiagram]);
                       }}
                     />
                   </div>
