@@ -1,11 +1,14 @@
 import React from 'react';
-import { motion } from 'framer-motion';
+import { motion, useScroll, useTransform } from 'framer-motion';
 import { ArrowRight, Download } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import TypewriterText from './TypewriterText';
 import SystemDiagram from './SystemDiagram';
 
 const Hero: React.FC = () => {
+  const { scrollY } = useScroll();
+  const scrollIndicatorOpacity = useTransform(scrollY, [0, 200], [1, 0]);
+
   return (
     <section className="relative min-h-screen flex items-center justify-center system-bg">
       <SystemDiagram />
@@ -22,7 +25,7 @@ const Hero: React.FC = () => {
             <TypewriterText
               text="The Systemic Developer: I build scalable microservices and LLM applications that turn architectural complexity into quantifiable business efficiency and product innovation."
               delay={1000}
-              speed={40}
+              speed={15}
               className="text-4xl md:text-5xl lg:text-6xl font-bold leading-snug text-foreground"
             />
           </div>
@@ -100,6 +103,7 @@ const Hero: React.FC = () => {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.6, delay: 6 }}
+        style={{ opacity: scrollIndicatorOpacity }}
         className="absolute bottom-8 left-1/2 transform -translate-x-1/2"
       >
         <motion.div
