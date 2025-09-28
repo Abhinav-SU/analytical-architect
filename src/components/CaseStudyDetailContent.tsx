@@ -6,13 +6,6 @@ import { Link } from 'react-router-dom';
 import CounterAnimation from './CounterAnimation';
 import { CaseStudy } from '../data/caseStudies';
 
-// Architecture diagram mapping using public folder paths
-const architectureDiagrams: Record<string, string> = {
-  'llm-explainer': '/architecture-llm-explainer.svg',
-  'iot-workflow': '/architecture-iot-workflow.svg',
-  'microservices-refactor': '/architecture-microservices-refactor.svg'
-};
-
 interface CaseStudyDetailContentProps {
   caseStudy: CaseStudy;
 }
@@ -171,19 +164,10 @@ const CaseStudyDetailContent: React.FC<CaseStudyDetailContentProps> = ({ caseStu
                 <div className="bg-card border border-border rounded-2xl p-8 shadow-elegant">
                   <div className="w-full bg-background rounded-xl border border-primary/20 p-6 min-h-[400px] flex items-center justify-center">
                     <img 
-                      src={architectureDiagrams[caseStudy.architectureDiagram]} 
+                      src={caseStudy.architectureDiagram} 
                       alt={`${caseStudy.title} Architecture Diagram`}
                       className="max-w-full max-h-full object-contain"
                       style={{ maxHeight: '400px' }}
-                      onError={(e) => {
-                        console.error('Failed to load diagram:', architectureDiagrams[caseStudy.architectureDiagram]);
-                        const target = e.target as HTMLImageElement;
-                        target.style.display = 'none';
-                        const fallback = document.createElement('div');
-                        fallback.className = 'text-muted-foreground text-center p-8';
-                        fallback.innerHTML = '<p>Architecture diagram temporarily unavailable</p>';
-                        target.parentElement?.appendChild(fallback);
-                      }}
                     />
                   </div>
                 </div>

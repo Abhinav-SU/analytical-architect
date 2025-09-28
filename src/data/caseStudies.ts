@@ -1,3 +1,8 @@
+// Import architecture diagrams as modules for guaranteed build-time resolution
+import llmExplainerDiagram from '../assets/diagrams/architecture-llm-explainer.svg';
+import iotWorkflowDiagram from '../assets/diagrams/architecture-iot-workflow.svg';
+import microservicesRefactorDiagram from '../assets/diagrams/architecture-microservices-refactor.svg';
+
 export interface CaseStudy {
   slug: string;
   title: string;
@@ -37,7 +42,7 @@ export const caseStudies: Record<string, CaseStudy> = {
     summary: 'Designed and implemented a semantic search system that ingests repository code, generates embeddings, and provides intelligent code explanations using RAG architecture.',
     challenge: 'Developer onboarding for large university codebases was slow and manual, requiring senior engineers to spend valuable time answering repetitive, context-specific questions about system architecture and implementation details.',
     solution: 'Built a service that automatically ingests and parses repository code, extracts metadata, and generates embeddings for semantic search. A FastAPI service routes user queries to the appropriate LLM (OpenAI/Gemini) using LlamaIndex for Retrieval-Augmented Generation (RAG).',
-    architectureDiagram: 'llm-explainer',
+    architectureDiagram: llmExplainerDiagram,
     deepDiveCode: {
       title: 'RAG Implementation with Caching Optimization',
       description: 'Implemented a robust caching and metadata persistence layer using PostgreSQL. This optimization cut redundant token/API usage by 25-30% and lowered inference costs.',
@@ -99,7 +104,7 @@ class CodebaseExplainer:
     summary: 'Built enterprise-grade microservices architecture for IoT device management with SOC 2 compliance, implementing automated workflows and real-time monitoring.',
     challenge: 'Legacy monolithic system couldn\'t scale to handle 10,000+ IoT devices, causing bottlenecks in data processing and compliance reporting.',
     solution: 'Designed distributed microservices with event-driven architecture, implementing automated workflows for device provisioning, monitoring, and compliance reporting.',
-    architectureDiagram: 'iot-workflow',
+    architectureDiagram: iotWorkflowDiagram,
     deepDiveCode: {
       title: 'Event-Driven Microservices Architecture',
       description: 'Implemented asynchronous event processing with Azure Service Bus for scalable IoT device management.',
@@ -167,7 +172,7 @@ public class DeviceWorkflowService {
     summary: 'Led architectural refactoring of monolithic reporting system into distributed microservices with blue-green deployment strategy and advanced caching mechanisms.',
     challenge: 'Legacy monolithic reporting system took 4-6 hours to generate critical business reports, causing delays in decision-making and customer satisfaction issues.',
     solution: 'Decomposed monolith into 12 specialized microservices with event-driven architecture, implemented distributed caching, and optimized data processing pipelines.',
-    architectureDiagram: 'microservices-refactor',
+    architectureDiagram: microservicesRefactorDiagram,
     deepDiveCode: {
       title: 'Distributed Caching with Spring Boot',
       description: 'Implemented Redis-based distributed caching with intelligent cache invalidation to achieve 80% performance improvement.',
