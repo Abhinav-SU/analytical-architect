@@ -1,18 +1,10 @@
 import React, { useRef } from 'react';
 import { motion, useInView, useScroll, useTransform } from 'framer-motion';
-import { ArrowLeft, ExternalLink, Copy, Check, ZoomIn, X } from 'lucide-react';
+import { ArrowLeft, ExternalLink, Copy, Check } from 'lucide-react';
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
 import { vscDarkPlus } from 'react-syntax-highlighter/dist/esm/styles/prism';
-import {
-  Dialog,
-  DialogContent,
-  DialogDescription,
-  DialogHeader,
-  DialogTitle,
-  DialogTrigger,
-} from './ui/dialog';
 import CounterAnimation from './CounterAnimation';
 import { CaseStudy } from '../data/caseStudies';
 
@@ -22,9 +14,7 @@ interface CaseStudyDetailContentProps {
 
 const CaseStudyDetailContent: React.FC<CaseStudyDetailContentProps> = ({ caseStudy }) => {
   const [copied, setCopied] = useState(false);
-  const [diagramOpen, setDiagramOpen] = useState(false);
   const containerRef = useRef(null);
-  const diagramRef = useRef(null);
   const codeRef = useRef(null);
   const tradeOffsRef = useRef(null);
 
@@ -148,112 +138,45 @@ const CaseStudyDetailContent: React.FC<CaseStudyDetailContentProps> = ({ caseStu
         </div>
       </section>
 
-      {/* Architecture Diagram Section with Scroll-Lock */}
+      {/* Solution & Technology Section */}
       <section className="py-16 relative">
         <div className="container mx-auto px-6">
           <div className="max-w-6xl mx-auto">
-            <motion.h2
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              className="text-3xl font-bold text-foreground mb-12 text-center"
-            >
-              System Architecture
-            </motion.h2>
-
-            {/* Sticky Container */}
-            <div className="relative">
-              {/* Sticky Diagram */}
+            <div className="space-y-8">
               <motion.div
-                ref={diagramRef}
-                initial={{ opacity: 0, scale: 0.9 }}
-                whileInView={{ opacity: 1, scale: 1 }}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-10%" }}
-                transition={{ duration: 0.8 }}
-                className="sticky top-20 z-10 mb-16"
+                className="bg-background/90 backdrop-blur-sm rounded-xl p-8 border border-border"
               >
-                <Dialog open={diagramOpen} onOpenChange={setDiagramOpen}>
-                  <DialogTrigger asChild>
-                    <div className="bg-card border border-border rounded-2xl p-8 shadow-elegant cursor-pointer group hover:border-primary/40 transition-colors">
-                      <div className="relative w-full bg-background rounded-xl border border-primary/20 p-6 min-h-[400px] flex items-center justify-center">
-                        <img 
-                          src={caseStudy.architectureDiagram} 
-                          alt={`${caseStudy.title} Architecture Diagram`}
-                          className="max-w-full max-h-full object-contain"
-                          style={{ maxHeight: '400px' }}
-                          loading="lazy"
-                          onError={(e) => {
-                            e.currentTarget.src = '/placeholder.svg';
-                            e.currentTarget.alt = 'Architecture diagram unavailable';
-                          }}
-                        />
-                        {/* Zoom Indicator */}
-                        <div className="absolute bottom-4 right-4 bg-primary/10 border border-primary/20 rounded-lg px-3 py-2 flex items-center gap-2 opacity-0 group-hover:opacity-100 transition-opacity">
-                          <ZoomIn className="h-4 w-4 text-primary" />
-                          <span className="text-sm font-medium text-primary">Click to zoom</span>
-                        </div>
-                      </div>
-                    </div>
-                  </DialogTrigger>
-                  <DialogContent className="max-w-7xl max-h-[90vh] p-0">
-                    <DialogHeader className="p-6 pb-0">
-                      <DialogTitle>System Architecture</DialogTitle>
-                      <DialogDescription>
-                        {caseStudy.title} - Full Architecture Diagram
-                      </DialogDescription>
-                    </DialogHeader>
-                    <div className="p-6 overflow-auto">
-                      <img 
-                        src={caseStudy.architectureDiagram} 
-                        alt={`${caseStudy.title} Architecture Diagram - Full Size`}
-                        className="w-full h-auto object-contain"
-                        onError={(e) => {
-                          e.currentTarget.src = '/placeholder.svg';
-                          e.currentTarget.alt = 'Architecture diagram unavailable';
-                        }}
-                      />
-                    </div>
-                  </DialogContent>
-                </Dialog>
+                <h3 className="text-xl font-semibold text-foreground mb-4">Solution Overview</h3>
+                <p className="text-muted-foreground leading-relaxed">
+                  {caseStudy.solution}
+                </p>
               </motion.div>
 
-              {/* Scrolling Content */}
-              <div className="space-y-8 relative z-20">
-                <motion.div
-                  initial={{ opacity: 0, y: 30 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true, margin: "-10%" }}
-                  className="bg-background/90 backdrop-blur-sm rounded-xl p-8 border border-border"
-                >
-                  <h3 className="text-xl font-semibold text-foreground mb-4">Solution Overview</h3>
-                  <p className="text-muted-foreground leading-relaxed">
-                    {caseStudy.solution}
-                  </p>
-                </motion.div>
-
-                <motion.div
-                  initial={{ opacity: 0, y: 30 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true, margin: "-10%" }}
-                  className="bg-background/90 backdrop-blur-sm rounded-xl p-8 border border-border"
-                >
-                  <h3 className="text-xl font-semibold text-foreground mb-4">Technology Stack</h3>
-                  <div className="flex flex-wrap gap-3">
-                    {caseStudy.technologies.map((tech, index) => (
-                      <motion.span
-                        key={tech}
-                        initial={{ opacity: 0, scale: 0.8 }}
-                        whileInView={{ opacity: 1, scale: 1 }}
-                        viewport={{ once: true }}
-                        transition={{ duration: 0.3, delay: index * 0.05 }}
-                        className="tech-tag"
-                      >
-                        {tech}
-                      </motion.span>
-                    ))}
-                  </div>
-                </motion.div>
-              </div>
+              <motion.div
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-10%" }}
+                className="bg-background/90 backdrop-blur-sm rounded-xl p-8 border border-border"
+              >
+                <h3 className="text-xl font-semibold text-foreground mb-4">Technology Stack</h3>
+                <div className="flex flex-wrap gap-3">
+                  {caseStudy.technologies.map((tech, index) => (
+                    <motion.span
+                      key={tech}
+                      initial={{ opacity: 0, scale: 0.8 }}
+                      whileInView={{ opacity: 1, scale: 1 }}
+                      viewport={{ once: true }}
+                      transition={{ duration: 0.3, delay: index * 0.05 }}
+                      className="tech-tag"
+                    >
+                      {tech}
+                    </motion.span>
+                  ))}
+                </div>
+              </motion.div>
             </div>
           </div>
         </div>
