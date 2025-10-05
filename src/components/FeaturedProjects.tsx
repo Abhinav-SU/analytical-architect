@@ -42,19 +42,25 @@ const ProjectCard: React.FC<ProjectProps> = ({
         className="block"
       >
         <motion.div
-          whileHover={{ y: -8, scale: 1.02 }}
-          transition={{ type: "spring", stiffness: 300, damping: 30 }}
-          className="bg-card border border-border rounded-xl p-8 h-full cursor-pointer relative overflow-hidden"
+          whileHover={{ y: -12, scale: 1.03 }}
+          transition={{ type: "spring", stiffness: 400, damping: 25 }}
+          className="bg-card/80 backdrop-blur-sm border border-border rounded-xl p-8 h-full cursor-pointer relative overflow-hidden shadow-lg hover:shadow-2xl hover:shadow-primary/10 transition-shadow duration-500"
         >
-        {/* Hover Glow Effect */}
-        <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-accent/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+        {/* Glassmorphism Background */}
+        <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-transparent to-accent/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+        
+        {/* Animated Border Gradient */}
+        <div className="absolute inset-0 rounded-xl bg-gradient-to-br from-primary/0 via-primary/0 to-accent/0 group-hover:from-primary/20 group-hover:via-accent/20 group-hover:to-primary/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500 -z-10" 
+             style={{ filter: 'blur(20px)' }} 
+        />
         
         {/* Content */}
         <div className="relative z-10">
           {/* Company Badge */}
           <motion.div 
-            className="inline-flex items-center gap-2 px-3 py-1 bg-secondary rounded-full text-sm font-mono text-secondary-foreground mb-4"
-            whileHover={{ scale: 1.05 }}
+            className="inline-flex items-center gap-2 px-3 py-1 bg-secondary/80 backdrop-blur-sm rounded-full text-sm font-mono text-secondary-foreground mb-4 border border-primary/10"
+            whileHover={{ scale: 1.1, borderColor: 'hsl(var(--primary) / 0.3)' }}
+            transition={{ type: "spring", stiffness: 500 }}
           >
             <div className="w-2 h-2 bg-primary rounded-full animate-pulse" />
             {company}
@@ -72,8 +78,9 @@ const ProjectCard: React.FC<ProjectProps> = ({
 
           {/* Impact Metric */}
           <motion.div 
-            className="flex items-center gap-3 mb-6 p-4 bg-success/10 border border-success/20 rounded-lg"
-            whileHover={{ scale: 1.02 }}
+            className="flex items-center gap-3 mb-6 p-4 bg-success/10 border border-success/20 rounded-lg backdrop-blur-sm"
+            whileHover={{ scale: 1.05, backgroundColor: 'hsl(var(--success) / 0.15)' }}
+            transition={{ type: "spring", stiffness: 500 }}
           >
             <TrendingUp className="text-success flex-shrink-0" size={20} />
             <span className="text-success font-semibold">{impact}</span>
@@ -87,7 +94,8 @@ const ProjectCard: React.FC<ProjectProps> = ({
                 initial={{ opacity: 0, scale: 0.8 }}
                 animate={isInView ? { opacity: 1, scale: 1 } : {}}
                 transition={{ duration: 0.3, delay: delay + 0.1 + index * 0.05 }}
-                className="tech-tag text-xs"
+                whileHover={{ scale: 1.1, y: -2 }}
+                className="tech-tag text-xs cursor-pointer"
               >
                 {tech}
               </motion.span>
@@ -97,15 +105,15 @@ const ProjectCard: React.FC<ProjectProps> = ({
           {/* CTA */}
           <motion.div
             className="flex items-center gap-2 text-primary font-medium group-hover:gap-3 transition-all duration-300"
-            whileHover={{ x: 5 }}
+            whileHover={{ x: 8 }}
           >
             <span>View Case Study</span>
-            <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform duration-300" />
+            <ArrowRight size={16} className="group-hover:translate-x-2 transition-transform duration-300" />
           </motion.div>
         </div>
 
-        {/* Hover Border Effect */}
-        <div className="absolute inset-0 border-2 border-primary/0 group-hover:border-primary/20 rounded-xl transition-colors duration-300" />
+        {/* Enhanced Hover Border Effect */}
+        <div className="absolute inset-0 border-2 border-primary/0 group-hover:border-primary/30 rounded-xl transition-all duration-500" />
         </motion.div>
       </Link>
     </motion.div>

@@ -98,55 +98,59 @@ class CodebaseExplainer:
     title: 'Scalable IoT Device Workflow',
     company: 'Meltek Inc.',
     role: 'Backend Engineer',
-    technologies: ['Java', 'Spring Boot', 'Azure Logic Apps', 'Microservices', 'Docker', 'Jenkins'],
+    technologies: ['Python', 'Azure Logic Apps', 'Azure Functions', 'Microservices', 'Docker', 'Jenkins'],
     impactMetric: 45,
     impactUnit: '% Reduction in Operational Costs',
-    summary: 'Built enterprise-grade microservices architecture for IoT device management with SOC 2 compliance, implementing automated workflows and real-time monitoring.',
+    summary: 'Built enterprise-grade serverless architecture for IoT device management with SOC 2 compliance, implementing automated workflows and real-time monitoring using Python and Azure cloud services.',
     challenge: 'Legacy monolithic system couldn\'t scale to handle 10,000+ IoT devices, causing bottlenecks in data processing and compliance reporting.',
-    solution: 'Designed distributed microservices with event-driven architecture, implementing automated workflows for device provisioning, monitoring, and compliance reporting.',
+    solution: 'Designed distributed serverless architecture with event-driven Azure Functions and Logic Apps, implementing automated workflows for device provisioning, monitoring, and compliance reporting.',
     architectureDiagram: iotWorkflowDiagram,
     deepDiveCode: {
-      title: 'Event-Driven Microservices Architecture',
-      description: 'Implemented asynchronous event processing with Azure Service Bus for scalable IoT device management.',
-      code: `@Service
-@Component
-public class DeviceWorkflowService {
-    
-    @Autowired
-    private DeviceRepository deviceRepository;
-    
-    @EventListener
-    @Async("deviceTaskExecutor")
-    public void handleDeviceRegistration(DeviceRegisteredEvent event) {
-        try {
-            Device device = event.getDevice();
+      title: 'Event-Driven Serverless Architecture',
+      description: 'Implemented asynchronous event processing with Azure Service Bus and Functions for scalable IoT device management.',
+      code: `import azure.functions as func
+import logging
+from azure.servicebus import ServiceBusClient
+from device_manager import DeviceRepository, ComplianceService
+
+app = func.FunctionApp()
+
+@app.service_bus_queue_trigger(
+    arg_name="message",
+    queue_name="device-registration",
+    connection="ServiceBusConnection"
+)
+async def handle_device_registration(message: func.ServiceBusMessage):
+    """Process device registration events asynchronously"""
+    try:
+        device_data = message.get_json()
+        device_id = device_data.get('device_id')
+        
+        # Validate device compliance
+        compliance_service = ComplianceService()
+        compliance_result = await compliance_service.validate_device(device_data)
+        
+        if compliance_result.is_compliant:
+            # Trigger provisioning via Azure Logic App
+            await trigger_logic_app_workflow(device_id, "device-provisioning")
             
-            // Validate device compliance
-            ComplianceResult compliance = complianceService
-                .validateDevice(device);
+            # Set up monitoring
+            await enable_device_monitoring(device_data)
             
-            if (compliance.isCompliant()) {
-                // Trigger provisioning workflow
-                workflowOrchestrator.startProvisioning(device.getId());
-                
-                // Set up monitoring
-                monitoringService.enableDeviceMonitoring(device);
-                
-                log.info("Device {} successfully registered and monitored", 
-                    device.getId());
-            }
-        } catch (Exception e) {
-            // Dead letter queue for failed processing
-            deadLetterService.handleFailedRegistration(event, e);
-        }
-    }
-}`,
-      language: 'java'
+            logging.info(f"Device {device_id} successfully registered and monitored")
+        else:
+            logging.warning(f"Device {device_id} failed compliance check")
+            
+    except Exception as e:
+        # Dead letter queue for failed processing
+        logging.error(f"Failed to process registration: {str(e)}")
+        raise`,
+      language: 'python'
     },
     tradeOffs: {
-      decision: 'Used Azure Logic Apps for workflow orchestration instead of custom Spring Boot workflows',
-      rationale: 'Azure Logic Apps provided built-in SOC 2 compliance, visual workflow design, and managed scaling, reducing development time by 40% while ensuring enterprise security requirements.',
-      alternatives: 'Custom Spring Boot workflows would have provided more control and potentially better performance, but would have required significant compliance and security implementation.'
+      decision: 'Used Azure Logic Apps and Functions instead of traditional Python web frameworks',
+      rationale: 'Azure serverless architecture provided built-in SOC 2 compliance, auto-scaling, and pay-per-execution pricing, reducing operational costs by 45% while ensuring enterprise security requirements.',
+      alternatives: 'Traditional Python frameworks (FastAPI/Flask) would have required custom scaling infrastructure and compliance implementation, increasing complexity and maintenance overhead.'
     },
     results: [
       '30-60% reduction in operational costs and deployment time',

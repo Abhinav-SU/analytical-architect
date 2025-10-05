@@ -22,3 +22,8 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# Documentation and testing guides (do not commit)
+TESTING_GUIDE.md
+VISUAL_CHANGES.md
+IMPLEMENTATION_SUMMARY.md

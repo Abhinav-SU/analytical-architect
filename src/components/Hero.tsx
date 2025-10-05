@@ -28,9 +28,9 @@ const Hero: React.FC = () => {
               className="space-y-2"
             >
               <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold leading-tight">
-                <div className="text-primary">SCALABLE SYSTEMS</div>
-                <div className="text-foreground">INTELLIGENT BACKEND</div>
-                <div className="text-accent">MEASURABLE IMPACT</div>
+                <div className="text-primary">BUILDING AT SCALE</div>
+                <div className="text-foreground">BACKEND SOLUTIONS</div>
+                <div className="text-accent">PROVEN RESULTS</div>
               </h1>
             </motion.div>
           </div>

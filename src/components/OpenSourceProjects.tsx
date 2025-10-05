@@ -8,6 +8,7 @@ interface OpenSourceProjectProps {
   description: string;
   technologies: string[];
   githubUrl: string;
+  language: string;
   delay: number;
 }
 
@@ -16,6 +17,7 @@ const OpenSourceProjectCard: React.FC<OpenSourceProjectProps> = ({
   description,
   technologies, 
   githubUrl,
+  language,
   delay 
 }) => {
   const ref = useRef(null);
@@ -37,29 +39,18 @@ const OpenSourceProjectCard: React.FC<OpenSourceProjectProps> = ({
         {/* Hover Glow Effect */}
         <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-accent/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
         
+        {/* Language Badge - Top Right */}
+        <div className="absolute top-4 right-4 px-3 py-1.5 bg-accent/10 backdrop-blur-sm border border-accent/20 rounded-md text-xs font-mono text-accent">
+          <span className="uppercase font-semibold">{language}</span>
+        </div>
+        
         {/* Content */}
         <div className="relative z-10">
-          {/* GitHub Icon */}
-          <motion.div 
-            className="flex items-center justify-between mb-4"
-            whileHover={{ scale: 1.05 }}
-          >
-            <div className="inline-flex items-center gap-2 px-3 py-1 bg-secondary rounded-full text-sm font-mono text-secondary-foreground">
-              <div className="w-2 h-2 bg-accent rounded-full animate-pulse" />
-              Open Source
-            </div>
-            
-            <motion.a
-              href={githubUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="p-2 bg-primary/10 hover:bg-primary/20 rounded-full transition-colors duration-300 group/github"
-              whileHover={{ scale: 1.1, rotate: 5 }}
-              whileTap={{ scale: 0.95 }}
-            >
-              <Github className="text-primary group-hover/github:text-accent transition-colors duration-300" size={24} />
-            </motion.a>
-          </motion.div>
+          {/* Open Source Badge */}
+          <div className="inline-flex items-center gap-2 px-3 py-1 bg-secondary rounded-full text-sm font-mono text-secondary-foreground mb-4">
+            <div className="w-2 h-2 bg-accent rounded-full animate-pulse" />
+            Open Source
+          </div>
 
           {/* Title */}
           <h3 className="text-2xl font-bold text-foreground mb-3 group-hover:text-primary transition-colors duration-300">
@@ -113,42 +104,49 @@ const OpenSourceProjects: React.FC = () => {
       title: "AI Resume Matcher",
       description: "Full-stack application leveraging LLM and NLP technologies to intelligently match resumes with job descriptions, featuring advanced text processing and semantic analysis capabilities.",
       technologies: ["LLM", "NLP", "FastAPI", "Full-Stack", "Python", "React"],
+      language: "Python",
       githubUrl: "https://github.com/Abhinav-SU/resume-matcher"
     },
     {
       title: "Car Review Analytics with ChromaDB",
       description: "AI-powered semantic search system that analyzes automotive customer reviews using vector embeddings and RAG architecture. Leverages ChromaDB for efficient similarity search and OpenAI GPT for generating actionable business insights from positive and negative feedback patterns.",
       technologies: ["ChromaDB", "OpenAI", "RAG", "Polars", "Vector Search", "Python"],
+      language: "Python",
       githubUrl: "https://github.com/Abhinav-SU/car-review-analyze"
     },
     {
       title: "LangChain Hospital Chatbot",
       description: "Healthcare-focused intelligent chatbot using LangChain framework with RAG architecture. Analyzes patient reviews stored in ChromaDB vector database and answers complex queries about hospital experiences using carefully engineered prompts and OpenAI GPT integration.",
       technologies: ["LangChain", "ChromaDB", "RAG", "OpenAI", "Healthcare AI", "Python"],
+      language: "Python",
       githubUrl: "https://github.com/Abhinav-SU/Langchain-chatbot"
     },
     {
       title: "Hospital Knowledge Graph ETL",
       description: "Enterprise-grade ETL pipeline loading healthcare data into Neo4j graph database. Implements comprehensive graph schema with 6 node types and 6 relationship types, featuring retry logic, uniqueness constraints, and Docker deployment for scalable hospital data management.",
       technologies: ["Neo4j", "Graph Database", "Docker", "ETL", "Healthcare Data", "Python"],
+      language: "Python",
       githubUrl: "https://github.com/Abhinav-SU/Hospital-chatbot"
     },
     {
       title: "Embeddings & Vector Database Fundamentals",
       description: "Comprehensive implementation of vector operations, word/text embeddings, and vector database concepts using ChromaDB. Demonstrates semantic similarity search, cosine distance calculations, and efficient embedding storage with practical examples using Spacy and Sentence Transformers.",
       technologies: ["ChromaDB", "Embeddings", "Spacy", "Sentence Transformers", "Vector DB", "Python"],
+      language: "Python",
       githubUrl: "https://github.com/Abhinav-SU/Embeddings-and-Vector-Database"
     },
     {
       title: "Applied NLP/LLM Mastery",
       description: "Comprehensive repository showcasing advanced Natural Language Processing and Large Language Model implementations, demonstrating cutting-edge techniques in AI and deep learning.",
       technologies: ["Advanced NLP/LLM", "Deep Learning", "Python", "PyTorch", "Transformers"],
+      language: "Python",
       githubUrl: "https://github.com/Abhinav-SU/applied_nlp_llm_mastery"
     },
     {
       title: "Privacy-Preserving ML",
       description: "Healthcare-focused machine learning system implementing federated learning techniques to ensure data privacy while maintaining model performance in sensitive medical applications.",
       technologies: ["Healthcare ML", "Data Privacy", "Federated Learning", "Python", "TensorFlow"],
+      language: "Python",
       githubUrl: "https://github.com/Abhinav-SU/privacy-preserving-ml-healthcare"
     }
   ];

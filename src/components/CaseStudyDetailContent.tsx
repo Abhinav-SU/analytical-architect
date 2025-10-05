@@ -1,8 +1,18 @@
 import React, { useRef } from 'react';
 import { motion, useInView, useScroll, useTransform } from 'framer-motion';
-import { ArrowLeft, ExternalLink, Copy, Check } from 'lucide-react';
+import { ArrowLeft, ExternalLink, Copy, Check, ZoomIn, X } from 'lucide-react';
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
+import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
+import { vscDarkPlus } from 'react-syntax-highlighter/dist/esm/styles/prism';
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from './ui/dialog';
 import CounterAnimation from './CounterAnimation';
 import { CaseStudy } from '../data/caseStudies';
 
@@ -12,6 +22,7 @@ interface CaseStudyDetailContentProps {
 
 const CaseStudyDetailContent: React.FC<CaseStudyDetailContentProps> = ({ caseStudy }) => {
   const [copied, setCopied] = useState(false);
+  const [diagramOpen, setDiagramOpen] = useState(false);
   const containerRef = useRef(null);
   const diagramRef = useRef(null);
   const codeRef = useRef(null);
@@ -161,21 +172,49 @@ const CaseStudyDetailContent: React.FC<CaseStudyDetailContentProps> = ({ caseStu
                 transition={{ duration: 0.8 }}
                 className="sticky top-20 z-10 mb-16"
               >
-                <div className="bg-card border border-border rounded-2xl p-8 shadow-elegant">
-                  <div className="w-full bg-background rounded-xl border border-primary/20 p-6 min-h-[400px] flex items-center justify-center">
-                    <img 
-                      src={caseStudy.architectureDiagram} 
-                      alt={`${caseStudy.title} Architecture Diagram`}
-                      className="max-w-full max-h-full object-contain"
-                      style={{ maxHeight: '400px' }}
-                      loading="lazy"
-                      onError={(e) => {
-                        e.currentTarget.src = '/placeholder.svg';
-                        e.currentTarget.alt = 'Architecture diagram unavailable';
-                      }}
-                    />
-                  </div>
-                </div>
+                <Dialog open={diagramOpen} onOpenChange={setDiagramOpen}>
+                  <DialogTrigger asChild>
+                    <div className="bg-card border border-border rounded-2xl p-8 shadow-elegant cursor-pointer group hover:border-primary/40 transition-colors">
+                      <div className="relative w-full bg-background rounded-xl border border-primary/20 p-6 min-h-[400px] flex items-center justify-center">
+                        <img 
+                          src={caseStudy.architectureDiagram} 
+                          alt={`${caseStudy.title} Architecture Diagram`}
+                          className="max-w-full max-h-full object-contain"
+                          style={{ maxHeight: '400px' }}
+                          loading="lazy"
+                          onError={(e) => {
+                            e.currentTarget.src = '/placeholder.svg';
+                            e.currentTarget.alt = 'Architecture diagram unavailable';
+                          }}
+                        />
+                        {/* Zoom Indicator */}
+                        <div className="absolute bottom-4 right-4 bg-primary/10 border border-primary/20 rounded-lg px-3 py-2 flex items-center gap-2 opacity-0 group-hover:opacity-100 transition-opacity">
+                          <ZoomIn className="h-4 w-4 text-primary" />
+                          <span className="text-sm font-medium text-primary">Click to zoom</span>
+                        </div>
+                      </div>
+                    </div>
+                  </DialogTrigger>
+                  <DialogContent className="max-w-7xl max-h-[90vh] p-0">
+                    <DialogHeader className="p-6 pb-0">
+                      <DialogTitle>System Architecture</DialogTitle>
+                      <DialogDescription>
+                        {caseStudy.title} - Full Architecture Diagram
+                      </DialogDescription>
+                    </DialogHeader>
+                    <div className="p-6 overflow-auto">
+                      <img 
+                        src={caseStudy.architectureDiagram} 
+                        alt={`${caseStudy.title} Architecture Diagram - Full Size`}
+                        className="w-full h-auto object-contain"
+                        onError={(e) => {
+                          e.currentTarget.src = '/placeholder.svg';
+                          e.currentTarget.alt = 'Architecture diagram unavailable';
+                        }}
+                      />
+                    </div>
+                  </DialogContent>
+                </Dialog>
               </motion.div>
 
               {/* Scrolling Content */}
@@ -255,12 +294,32 @@ const CaseStudyDetailContent: React.FC<CaseStudyDetailContentProps> = ({ caseStu
                 </motion.button>
               </div>
 
-              {/* Code Content */}
-              <pre className="text-sm leading-relaxed overflow-x-auto">
-                <code className="text-code-text">
+              {/* Code Content with Syntax Highlighting */}
+              <div className="relative">
+                <SyntaxHighlighter
+                  language={caseStudy.deepDiveCode.language}
+                  style={vscDarkPlus}
+                  showLineNumbers={true}
+                  customStyle={{
+                    margin: 0,
+                    borderRadius: '0.5rem',
+                    fontSize: '0.875rem',
+                    padding: '1.5rem',
+                  }}
+                  codeTagProps={{
+                    style: {
+                      fontFamily: "'JetBrains Mono', 'Fira Code', monospace",
+                    }
+                  }}
+                >
                   {caseStudy.deepDiveCode.code}
-                </code>
-              </pre>
+                </SyntaxHighlighter>
+                
+                {/* Language Badge */}
+                <div className="absolute top-4 right-4 px-3 py-1.5 bg-primary/10 backdrop-blur-sm border border-primary/20 rounded-md text-xs font-mono text-primary">
+                  <span className="uppercase font-semibold">{caseStudy.deepDiveCode.language}</span>
+                </div>
+              </div>
             </div>
           </motion.div>
         </div>
