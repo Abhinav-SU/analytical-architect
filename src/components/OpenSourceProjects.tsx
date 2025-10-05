@@ -113,7 +113,31 @@ const OpenSourceProjects: React.FC = () => {
       title: "AI Resume Matcher",
       description: "Full-stack application leveraging LLM and NLP technologies to intelligently match resumes with job descriptions, featuring advanced text processing and semantic analysis capabilities.",
       technologies: ["LLM", "NLP", "FastAPI", "Full-Stack", "Python", "React"],
-      githubUrl: "https://github.com/Abhinav-SU/resume-matcher-app"
+      githubUrl: "https://github.com/Abhinav-SU/resume-matcher"
+    },
+    {
+      title: "Car Review Analytics with ChromaDB",
+      description: "AI-powered semantic search system that analyzes automotive customer reviews using vector embeddings and RAG architecture. Leverages ChromaDB for efficient similarity search and OpenAI GPT for generating actionable business insights from positive and negative feedback patterns.",
+      technologies: ["ChromaDB", "OpenAI", "RAG", "Polars", "Vector Search", "Python"],
+      githubUrl: "https://github.com/Abhinav-SU/car-review-analyze"
+    },
+    {
+      title: "LangChain Hospital Chatbot",
+      description: "Healthcare-focused intelligent chatbot using LangChain framework with RAG architecture. Analyzes patient reviews stored in ChromaDB vector database and answers complex queries about hospital experiences using carefully engineered prompts and OpenAI GPT integration.",
+      technologies: ["LangChain", "ChromaDB", "RAG", "OpenAI", "Healthcare AI", "Python"],
+      githubUrl: "https://github.com/Abhinav-SU/Langchain-chatbot"
+    },
+    {
+      title: "Hospital Knowledge Graph ETL",
+      description: "Enterprise-grade ETL pipeline loading healthcare data into Neo4j graph database. Implements comprehensive graph schema with 6 node types and 6 relationship types, featuring retry logic, uniqueness constraints, and Docker deployment for scalable hospital data management.",
+      technologies: ["Neo4j", "Graph Database", "Docker", "ETL", "Healthcare Data", "Python"],
+      githubUrl: "https://github.com/Abhinav-SU/Hospital-chatbot"
+    },
+    {
+      title: "Embeddings & Vector Database Fundamentals",
+      description: "Comprehensive implementation of vector operations, word/text embeddings, and vector database concepts using ChromaDB. Demonstrates semantic similarity search, cosine distance calculations, and efficient embedding storage with practical examples using Spacy and Sentence Transformers.",
+      technologies: ["ChromaDB", "Embeddings", "Spacy", "Sentence Transformers", "Vector DB", "Python"],
+      githubUrl: "https://github.com/Abhinav-SU/Embeddings-and-Vector-Database"
     },
     {
       title: "Applied NLP/LLM Mastery",

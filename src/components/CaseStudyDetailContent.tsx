@@ -168,6 +168,11 @@ const CaseStudyDetailContent: React.FC<CaseStudyDetailContentProps> = ({ caseStu
                       alt={`${caseStudy.title} Architecture Diagram`}
                       className="max-w-full max-h-full object-contain"
                       style={{ maxHeight: '400px' }}
+                      loading="lazy"
+                      onError={(e) => {
+                        e.currentTarget.src = '/placeholder.svg';
+                        e.currentTarget.alt = 'Architecture diagram unavailable';
+                      }}
                     />
                   </div>
                 </div>

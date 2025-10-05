@@ -1,7 +1,7 @@
 // Import architecture diagrams as modules for guaranteed build-time resolution
-import llmExplainerDiagram from '../assets/diagrams/architecture-llm-explainer.svg';
-import iotWorkflowDiagram from '../assets/diagrams/architecture-iot-workflow.svg';
-import microservicesRefactorDiagram from '../assets/diagrams/architecture-microservices-refactor.svg';
+import llmExplainerDiagram from '../assets/diagrams/architecture-llm-explainer.png';
+import iotWorkflowDiagram from '../assets/diagrams/architecture-iot-workflow.png';
+import microservicesRefactorDiagram from '../assets/diagrams/architecture-microservices-refactor.png';
 
 export interface CaseStudy {
   slug: string;
@@ -238,11 +238,7 @@ public class ReportGenerationService {
 };
 
 export const getCaseStudy = (slug: string): CaseStudy | undefined => {
-  console.log('Looking for case study with slug:', slug);
-  console.log('Available slugs:', Object.keys(caseStudies));
-  const result = caseStudies[slug];
-  console.log('Found case study:', result ? result.title : 'Not found');
-  return result;
+  return caseStudies[slug];
 };
 
 export const getAllCaseStudies = (): CaseStudy[] => {
