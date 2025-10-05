@@ -141,13 +141,6 @@ const OpenSourceProjects: React.FC = () => {
       technologies: ["Advanced NLP/LLM", "Deep Learning", "Python", "PyTorch", "Transformers"],
       language: "Python",
       githubUrl: "https://github.com/Abhinav-SU/applied_nlp_llm_mastery"
-    },
-    {
-      title: "Privacy-Preserving ML",
-      description: "Healthcare-focused machine learning system implementing federated learning techniques to ensure data privacy while maintaining model performance in sensitive medical applications.",
-      technologies: ["Healthcare ML", "Data Privacy", "Federated Learning", "Python", "TensorFlow"],
-      language: "Python",
-      githubUrl: "https://github.com/Abhinav-SU/privacy-preserving-ml-healthcare"
     }
   ];
 

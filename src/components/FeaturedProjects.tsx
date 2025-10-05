@@ -132,9 +132,9 @@ const FeaturedProjects: React.FC = () => {
     {
       title: "Scalable IoT Device Workflow",
       company: "Meltek Inc.",
-      description: "Built enterprise-grade microservices architecture for IoT device management with SOC 2 compliance, implementing automated workflows and real-time monitoring systems.",
+      description: "Built enterprise-grade serverless architecture for IoT device management with SOC 2 compliance, implementing automated workflows and real-time monitoring using Python and Azure cloud services.",
       impact: "30-60% reduction in operational costs and deployment time",
-      technologies: ["Java", "Spring Boot", "Azure Logic Apps", "Microservices", "Docker", "Jenkins"]
+      technologies: ["Python", "Azure Logic Apps", "Azure Functions", "Microservices", "Docker", "Jenkins"]
     },
     {
       title: "High-Throughput Microservices Refactor",
