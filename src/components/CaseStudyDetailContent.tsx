@@ -1,6 +1,6 @@
 import React, { useRef } from 'react';
 import { motion, useInView, useScroll, useTransform } from 'framer-motion';
-import { ArrowLeft, ExternalLink, Copy, Check } from 'lucide-react';
+import { ArrowLeft, ExternalLink, Copy, Check, CheckCircle2, TrendingUp } from 'lucide-react';
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
@@ -129,20 +129,22 @@ const CaseStudyDetailContent: React.FC<CaseStudyDetailContentProps> = ({ caseStu
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-10%" }}
               transition={{ duration: 0.8 }}
-              className="max-w-4xl mx-auto"
+              className="max-w-5xl mx-auto"
             >
               <h2 className="text-3xl font-bold text-foreground mb-8 text-center">Demo & Overview</h2>
-              <div className="relative rounded-2xl overflow-hidden shadow-2xl border border-border">
-                <iframe
-                  width="100%"
-                  height="600"
-                  src={caseStudy.videoUrl}
-                  title={`${caseStudy.title} Demo`}
-                  frameBorder="0"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                  allowFullScreen
-                  className="w-full"
-                />
+              <div className="relative rounded-2xl overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.3)] border-2 border-primary/20">
+                <div className="aspect-video">
+                  <iframe
+                    width="100%"
+                    height="100%"
+                    src={caseStudy.videoUrl}
+                    title={`${caseStudy.title} Demo`}
+                    frameBorder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowFullScreen
+                    className="w-full h-full"
+                  />
+                </div>
               </div>
             </motion.div>
           </div>
@@ -226,7 +228,7 @@ const CaseStudyDetailContent: React.FC<CaseStudyDetailContentProps> = ({ caseStu
             <div className="code-block shadow-code">
               {/* Code Header */}
               <div className="flex items-center justify-between mb-6 pb-4 border-b border-code-border">
-                <div>
+                <div className="flex-1">
                   <h3 className="text-lg font-semibold text-code-text mb-2">
                     {caseStudy.deepDiveCode.title}
                   </h3>
@@ -239,10 +241,14 @@ const CaseStudyDetailContent: React.FC<CaseStudyDetailContentProps> = ({ caseStu
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
                   onClick={handleCopyCode}
-                  className="flex items-center gap-2 px-3 py-2 bg-secondary rounded-lg text-sm hover:bg-accent hover:text-accent-foreground transition-colors"
+                  className={`flex items-center gap-2 px-4 py-2.5 rounded-lg text-sm font-medium transition-all duration-300 ${
+                    copied 
+                      ? 'bg-success/20 border-2 border-success text-success' 
+                      : 'bg-secondary border-2 border-border hover:bg-accent hover:border-accent hover:text-accent-foreground'
+                  }`}
                 >
-                  {copied ? <Check size={16} /> : <Copy size={16} />}
-                  {copied ? 'Copied!' : 'Copy'}
+                  {copied ? <Check size={18} className="animate-bounce" /> : <Copy size={18} />}
+                  <span className="font-semibold">{copied ? 'Copied!' : 'Copy Code'}</span>
                 </motion.button>
               </div>
 
@@ -336,11 +342,13 @@ const CaseStudyDetailContent: React.FC<CaseStudyDetailContentProps> = ({ caseStu
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.6, delay: index * 0.1 }}
-                  className="bg-card border border-border rounded-lg p-6"
+                  className="bg-card border border-border rounded-lg p-6 hover:border-primary/30 hover:shadow-lg transition-all duration-300"
                 >
-                  <div className="flex items-center gap-3">
-                    <div className="w-3 h-3 bg-success rounded-full" />
-                    <p className="text-foreground font-medium">{result}</p>
+                  <div className="flex items-start gap-3">
+                    <div className="w-8 h-8 rounded-full bg-success/20 flex items-center justify-center flex-shrink-0 mt-0.5">
+                      <CheckCircle2 size={18} className="text-success" />
+                    </div>
+                    <p className="text-foreground font-medium leading-relaxed">{result}</p>
                   </div>
                 </motion.div>
               ))}

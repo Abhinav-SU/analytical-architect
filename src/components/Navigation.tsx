@@ -78,7 +78,7 @@ const Navigation: React.FC = () => {
           <motion.a
             whileHover={{ scale: 1.05, y: -3 }}
             whileTap={{ scale: 0.98 }}
-            href="/Abhinav_Resume.pdf"
+            href="/resume.pdf"
             target="_blank"
             rel="noopener noreferrer"
             className="hidden md:flex items-center gap-2 px-5 py-2.5 rounded-lg bg-gradient-to-r from-primary/10 to-accent/10 border border-primary/20 hover:border-primary/40 text-primary font-semibold text-sm transition-all duration-300 group relative overflow-hidden"
@@ -138,7 +138,7 @@ const Navigation: React.FC = () => {
                   className="pt-4"
                 >
                   <a
-                    href="/Abhinav_Resume.pdf"
+                    href="/resume.pdf"
                     target="_blank"
                     rel="noopener noreferrer"
                     onClick={closeMobileMenu}

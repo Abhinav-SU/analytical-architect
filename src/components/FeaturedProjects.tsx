@@ -31,16 +31,22 @@ const ProjectCard: React.FC<ProjectProps> = ({
   const isInView = useInView(ref, { once: true, margin: "-10%" });
   const [showVideo, setShowVideo] = React.useState(false);
 
+  // Extract YouTube video ID from embed URL
+  const getYouTubeThumbnail = (url: string) => {
+    const videoId = url.split('/embed/')[1]?.split('?')[0];
+    return videoId ? `https://img.youtube.com/vi/${videoId}/maxresdefault.jpg` : '';
+  };
+
   // Create slug from title for routing
   const slug = title.toLowerCase()
     .replace(/[^a-z0-9]+/g, '-')
     .replace(/(^-|-$)/g, '');
 
-  // Size variants for Bento Grid
+  // Size variants for Bento Grid - 6-column system
   const sizeClasses = {
-    large: 'lg:col-span-2 lg:row-span-2',
-    medium: 'lg:col-span-1 lg:row-span-2',
-    small: 'lg:col-span-1 lg:row-span-1'
+    large: 'md:col-span-2 lg:col-span-3',
+    medium: 'md:col-span-1 lg:col-span-2',
+    small: 'md:col-span-1 lg:col-span-2'
   };
 
   return (
@@ -76,19 +82,35 @@ const ProjectCard: React.FC<ProjectProps> = ({
                 }}
               >
                 {!showVideo ? (
-                  <div className="relative aspect-video flex items-center justify-center bg-gradient-to-br from-primary/10 to-accent/10">
+                  <div className="relative aspect-video flex items-center justify-center bg-gradient-to-br from-primary/20 via-accent/20 to-primary/10 overflow-hidden">
+                    {/* YouTube Thumbnail */}
+                    <img 
+                      src={getYouTubeThumbnail(videoUrl)}
+                      alt={`${title} video thumbnail`}
+                      className="absolute inset-0 w-full h-full object-cover"
+                      loading="lazy"
+                      onError={(e) => {
+                        e.currentTarget.style.display = 'none';
+                      }}
+                    />
+                    
+                    {/* Dark overlay */}
                     <motion.div 
                       className="absolute inset-0 bg-black/40 group-hover/video:bg-black/20 transition-colors duration-300"
                       whileHover={{ backgroundColor: 'rgba(0,0,0,0.2)' }}
                     />
+                    
+                    {/* Play button */}
                     <motion.div
-                      whileHover={{ scale: 1.1 }}
-                      className="relative z-10 w-16 h-16 rounded-full bg-primary/90 backdrop-blur-sm flex items-center justify-center shadow-lg"
+                      whileHover={{ scale: 1.15 }}
+                      className="relative z-10 w-20 h-20 rounded-full bg-primary backdrop-blur-sm flex items-center justify-center shadow-2xl border-4 border-white/20"
                     >
-                      <Play className="text-primary-foreground ml-1" size={28} fill="currentColor" />
+                      <Play className="text-primary-foreground ml-1.5" size={32} fill="currentColor" />
                     </motion.div>
-                    <div className="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black/60 to-transparent">
-                      <p className="text-white text-sm font-medium">▶ Watch Demo Video</p>
+                    
+                    {/* Label */}
+                    <div className="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black/80 via-black/50 to-transparent">
+                      <p className="text-white text-sm font-semibold tracking-wide">▶ Watch Demo Video</p>
                     </div>
                   </div>
                 ) : (
@@ -263,7 +285,7 @@ const FeaturedProjects: React.FC = () => {
         </motion.div>
 
         {/* Bento Grid Layout */}
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 lg:gap-8 auto-rows-fr">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-6 lg:gap-8">
           {projects.map((project, index) => (
             <ProjectCard
               key={project.title}

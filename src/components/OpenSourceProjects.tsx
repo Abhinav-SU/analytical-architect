@@ -34,10 +34,13 @@ const OpenSourceProjectCard: React.FC<OpenSourceProjectProps> = ({
       <motion.div
         whileHover={{ y: -8, scale: 1.02 }}
         transition={{ type: "spring", stiffness: 300, damping: 30 }}
-        className="bg-card border border-border rounded-xl p-8 h-full relative overflow-hidden"
+        className="bg-card/60 backdrop-blur-xl border border-border/50 rounded-xl p-8 h-full relative overflow-hidden shadow-[var(--shadow-card)] hover:shadow-[var(--shadow-hover)] transition-all duration-500"
       >
-        {/* Hover Glow Effect */}
+        {/* Animated gradient background */}
         <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-accent/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+        
+        {/* Glow effect on hover */}
+        <div className="absolute inset-0 rounded-xl bg-gradient-to-br from-primary/0 via-primary/0 to-accent/0 group-hover:from-primary/10 group-hover:via-accent/10 group-hover:to-primary/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-xl -z-10" />
         
         {/* Language Badge - Top Right */}
         <div className="absolute top-4 right-4 px-3 py-1.5 bg-accent/10 backdrop-blur-sm border border-accent/20 rounded-md text-xs font-mono text-accent">
@@ -92,7 +95,7 @@ const OpenSourceProjectCard: React.FC<OpenSourceProjectProps> = ({
         </div>
 
         {/* Hover Border Effect */}
-        <div className="absolute inset-0 border-2 border-primary/0 group-hover:border-primary/20 rounded-xl transition-colors duration-300" />
+        <div className="absolute inset-0 border-2 border-primary/0 group-hover:border-primary/30 rounded-xl transition-all duration-500 pointer-events-none" />
       </motion.div>
     </motion.div>
   );
