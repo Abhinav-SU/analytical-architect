@@ -11,6 +11,7 @@ import CaseStudyDetail from "./pages/CaseStudyDetail";
 import NotFound from "./pages/NotFound";
 import Preloader from "./components/Preloader";
 import ErrorBoundary from "./components/ErrorBoundary";
+import ScrollToTop from "./components/ScrollToTop";
 
 const queryClient = new QueryClient();
 
@@ -22,6 +23,7 @@ const App = () => (
         <Toaster />
         <Sonner />
         <BrowserRouter>
+          <ScrollToTop />
           <Routes>
             <Route path="/" element={<Index />} />
             <Route path="/about" element={<AboutPage />} />

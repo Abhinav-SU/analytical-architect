@@ -21,7 +21,7 @@ const Preloader: React.FC = () => {
     // Minimum loading time
     const minTimer = setTimeout(() => {
       setLoading(false);
-    }, 2500);
+    }, 800);
 
     return () => {
       clearInterval(timer);

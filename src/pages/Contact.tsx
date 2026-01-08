@@ -20,8 +20,8 @@ const Contact: React.FC = () => {
               Let's Build Something <span className="text-primary">Exceptional</span>
             </h1>
             <p className="text-xl text-muted-foreground mb-16 max-w-3xl mx-auto">
-              Ready to architect and develop your next scalable system? I'm always open to discussing 
-              technical challenges, system design, and opportunities to create measurable business impact.
+              Software Engineer specializing in database infrastructure and backend API development. 
+              Open to discussing PostgreSQL optimization, Python FastAPI development, and cloud architecture opportunities.
             </p>
           </motion.div>
 
@@ -95,30 +95,30 @@ const Contact: React.FC = () => {
               
               <div className="space-y-6">
                 <div className="p-6 bg-card border border-border rounded-xl">
-                  <h3 className="font-semibold text-primary mb-3">System Architecture</h3>
+                  <h3 className="font-semibold text-primary mb-3">Database Infrastructure</h3>
                   <p className="text-muted-foreground">
-                    Microservices design, distributed systems, and scalable backend architecture
+                    PostgreSQL optimization, primary-replica architecture, query tuning, and performance monitoring
                   </p>
                 </div>
 
                 <div className="p-6 bg-card border border-border rounded-xl">
-                  <h3 className="font-semibold text-primary mb-3">AI Integration</h3>
+                  <h3 className="font-semibold text-primary mb-3">Backend API Development</h3>
                   <p className="text-muted-foreground">
-                    LLM applications, RAG implementations, and intelligent automation
+                    Python FastAPI, Node.js Fastify, RESTful APIs, and intelligent caching strategies
                   </p>
                 </div>
 
                 <div className="p-6 bg-card border border-border rounded-xl">
-                  <h3 className="font-semibold text-primary mb-3">Cloud & DevOps</h3>
+                  <h3 className="font-semibold text-primary mb-3">Cloud Architecture</h3>
                   <p className="text-muted-foreground">
-                    AWS/Azure architecture, CI/CD pipelines, and infrastructure optimization
+                    Azure Event Hubs, Azure Functions, AWS Lambda, serverless architecture, and cost optimization
                   </p>
                 </div>
 
                 <div className="p-6 bg-card border border-border rounded-xl">
-                  <h3 className="font-semibold text-primary mb-3">Performance Engineering</h3>
+                  <h3 className="font-semibold text-primary mb-3">Data Processing</h3>
                   <p className="text-muted-foreground">
-                    System optimization, caching strategies, and high-throughput data processing
+                    Real-time data pipelines, ETL processes, and high-volume data ingestion systems
                   </p>
                 </div>
               </div>
@@ -139,7 +139,7 @@ const Contact: React.FC = () => {
               <p className="text-muted-foreground mb-6">
                 Whether you're looking to optimize existing systems, implement new AI capabilities, 
                 or architect scalable solutions from the ground up, let's discuss how we can create 
-                measurable business impact together.
+                measurable impact together.
               </p>
               
               <div className="flex flex-col sm:flex-row items-center justify-center gap-4">

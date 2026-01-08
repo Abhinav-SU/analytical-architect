@@ -120,6 +120,35 @@ const CaseStudyDetailContent: React.FC<CaseStudyDetailContentProps> = ({ caseStu
         </div>
       </section>
 
+      {/* Video Section */}
+      {caseStudy.videoUrl && (
+        <section className="py-16 bg-muted/30">
+          <div className="container mx-auto px-6">
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-10%" }}
+              transition={{ duration: 0.8 }}
+              className="max-w-4xl mx-auto"
+            >
+              <h2 className="text-3xl font-bold text-foreground mb-8 text-center">Demo & Overview</h2>
+              <div className="relative rounded-2xl overflow-hidden shadow-2xl border border-border">
+                <iframe
+                  width="100%"
+                  height="600"
+                  src={caseStudy.videoUrl}
+                  title={`${caseStudy.title} Demo`}
+                  frameBorder="0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowFullScreen
+                  className="w-full"
+                />
+              </div>
+            </motion.div>
+          </div>
+        </section>
+      )}
+
       {/* Challenge Section */}
       <section className="py-16 bg-muted/30">
         <div className="container mx-auto px-6">

@@ -9,25 +9,25 @@ const About: React.FC = () => {
 
   const skillCategories = [
     {
-      title: "Backend & Core",
+      title: "Languages",
       icon: Code,
       color: "primary",
-      skills: ["Java", "Spring Boot", "Spring Batch", "Microservices", "Distributed Systems", "Object-Oriented Design"],
-      description: "Enterprise-grade backend systems with proven scalability"
+      skills: ["Python", "JavaScript", "TypeScript", "SQL", "Shell Scripting"],
+      description: "Core programming languages for backend and database development"
     },
     {
-      title: "AI & Data",
+      title: "Backend & Databases",
       icon: Brain,
       color: "accent",
-      skills: ["LLM Integration (OpenAI, Gemini)", "LlamaIndex", "Semantic Search", "Prompt Engineering", "Pandas", "TensorFlow"],
-      description: "Advanced AI integrations and intelligent data processing"
+      skills: ["FastAPI", "Node.js (Fastify)", "PostgreSQL", "MySQL", "Redis", "Neo4j", "pgvector", "Elasticsearch"],
+      description: "Backend frameworks and database systems expertise"
     },
     {
       title: "Cloud & DevOps",
       icon: Cloud,
       color: "success",
-      skills: ["AWS", "Azure Logic Apps", "Azure Monitor", "GCP", "Docker", "Jenkins", "Git", "Kafka", "Linux"],
-      description: "Cloud-native architecture and automated deployment pipelines"
+      skills: ["AWS (Lambda, EC2, RDS, S3, CloudWatch)", "Azure (Functions, Event Hubs, Logic Apps)", "Docker", "Git", "Pydantic"],
+      description: "Cloud platforms and DevOps tools"
     }
   ];
 
@@ -43,7 +43,7 @@ const About: React.FC = () => {
           className="text-center mb-16"
         >
           <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-6">
-            Building the Foundation for <span className="text-primary">Intelligence</span>
+            Building High-Performance <span className="text-primary">Infrastructure</span>
           </h2>
         </motion.div>
 
@@ -69,11 +69,19 @@ const About: React.FC = () => {
 
             <div className="space-y-4 text-muted-foreground leading-relaxed">
               <p>
-                I am a <strong className="text-foreground">Software Developer</strong> focused on designing and implementing scalable backend systems and advanced AI integrations. My background at TCS built a deep foundation in high-throughput Java/Spring microservices, which I now combine with cutting-edge expertise in Python, LLMs (OpenAI, Gemini), and cloud architecture (AWS, Azure) to drive business efficiency.
+                I am a <strong className="text-foreground">Software Engineer</strong> with MS in Computer Science from Syracuse University and <strong className="text-primary">4+ years of experience</strong> specializing in database infrastructure and backend API development.
               </p>
               
               <p>
-                <strong className="text-primary">Core Value:</strong> I specialize in optimizing data pipelines and system architecture to minimize operational costs while accelerating product development and improving maintainability.
+                My professional experience includes 4 years at <strong className="text-primary">Tata Consultancy Services (TCS)</strong> managing PostgreSQL database infrastructure for 400,000+ employees, reducing response times from 8 seconds to under 2 seconds through primary-replica architecture and query optimization.
+              </p>
+              
+              <p>
+                I combine enterprise-scale <strong className="text-primary">database expertise</strong> with modern API development skills. My work focuses on building high-performance database systems, implementing zero-downtime migrations, and developing <strong className="text-accent">Python FastAPI applications</strong> with intelligent caching strategies.
+              </p>
+              
+              <p>
+                <strong className="text-primary">Core Focus:</strong> Building robust database infrastructure and backend APIs that deliver measurable performance improvements while maintaining 99.9% uptime for 24/7 operations.
               </p>
             </div>
 
@@ -155,6 +163,87 @@ const About: React.FC = () => {
             })}
           </motion.div>
         </div>
+
+        {/* Education & Experience Timeline */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.8, delay: 1.0 }}
+          className="mt-20"
+        >
+          <h3 className="text-3xl font-bold text-foreground mb-10 text-center">Education & Experience</h3>
+          
+          <div className="max-w-4xl mx-auto space-y-6">
+            {/* REVA University - First */}
+            <motion.div
+              whileHover={{ scale: 1.02, y: -4 }}
+              className="bg-card/60 backdrop-blur-sm border border-border/50 rounded-xl p-6 hover:shadow-[var(--shadow-card)] transition-all duration-300"
+            >
+              <div className="flex items-start justify-between gap-4 mb-3">
+                <div className="flex-1">
+                  <h4 className="text-xl font-bold text-primary">REVA University</h4>
+                  <p className="text-foreground font-semibold">Bachelor of Technology in Computer Science & Engineering</p>
+                  <p className="text-muted-foreground text-sm">CGPA: 8.42/10.0</p>
+                </div>
+                <span className="text-sm font-mono text-muted-foreground whitespace-nowrap">Jul 2015 - Jun 2019</span>
+              </div>
+            </motion.div>
+
+            {/* Tata Consultancy Services */}
+            <motion.div
+              whileHover={{ scale: 1.02, y: -4 }}
+              className="bg-card/60 backdrop-blur-sm border border-border/50 rounded-xl p-6 hover:shadow-[var(--shadow-card)] transition-all duration-300"
+            >
+              <div className="flex items-start justify-between gap-4 mb-3">
+                <div className="flex-1">
+                  <h4 className="text-xl font-bold text-primary">Tata Consultancy Services (TCS)</h4>
+                  <p className="text-foreground font-semibold">Software Developer</p>
+                  <p className="text-muted-foreground text-sm">Full-time</p>
+                </div>
+                <span className="text-sm font-mono text-muted-foreground whitespace-nowrap">May 2019 - Jul 2023</span>
+              </div>
+              <p className="text-muted-foreground text-sm">
+                Managed PostgreSQL database infrastructure for 400,000+ employees, reducing database load by 40% and improving system response times from 8 seconds to under 2 seconds through primary-replica architecture and query optimization.
+              </p>
+            </motion.div>
+
+            {/* Syracuse University - MS Degree */}
+            <motion.div
+              whileHover={{ scale: 1.02, y: -4 }}
+              className="bg-card/60 backdrop-blur-sm border border-border/50 rounded-xl p-6 hover:shadow-[var(--shadow-card)] transition-all duration-300"
+            >
+              <div className="flex items-start justify-between gap-4 mb-3">
+                <div className="flex-1">
+                  <h4 className="text-xl font-bold text-primary">Syracuse University</h4>
+                  <p className="text-foreground font-semibold">Master of Science in Computer Science</p>
+                  <p className="text-muted-foreground text-sm">GPA: 3.64/4.0</p>
+                </div>
+                <span className="text-sm font-mono text-muted-foreground whitespace-nowrap">Aug 2023 - May 2025</span>
+              </div>
+              <p className="text-muted-foreground text-sm">
+                <strong className="text-foreground">Relevant Coursework:</strong> Design & Analysis of Algorithms, Social Media & Data Mining, Database Management Systems
+              </p>
+            </motion.div>
+
+            {/* Syracuse University Internship */}
+            <motion.div
+              whileHover={{ scale: 1.02, y: -4 }}
+              className="bg-card/60 backdrop-blur-sm border border-border/50 rounded-xl p-6 hover:shadow-[var(--shadow-card)] transition-all duration-300"
+            >
+              <div className="flex items-start justify-between gap-4 mb-3">
+                <div className="flex-1">
+                  <h4 className="text-xl font-bold text-primary">Syracuse University</h4>
+                  <p className="text-foreground font-semibold">Software Engineer Intern</p>
+                  <p className="text-muted-foreground text-sm">Part-time</p>
+                </div>
+                <span className="text-sm font-mono text-muted-foreground whitespace-nowrap">Jul 2024 - Present</span>
+              </div>
+              <p className="text-muted-foreground text-sm">
+                Architected codebase analysis platform using Python FastAPI reducing external API costs by 85% through intelligent caching strategy, processing 50-file codebases in under 500ms with 99.5% cache hit rate saving approximately $2,000 monthly.
+              </p>
+            </motion.div>
+          </div>
+        </motion.div>
 
         {/* Contact Section */}
         <motion.div

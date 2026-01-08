@@ -101,11 +101,11 @@ const OpenSourceProjectCard: React.FC<OpenSourceProjectProps> = ({
 const OpenSourceProjects: React.FC = () => {
   const projects = [
     {
-      title: "AI Resume Matcher",
-      description: "Full-stack application leveraging LLM and NLP technologies to intelligently match resumes with job descriptions, featuring advanced text processing and semantic analysis capabilities.",
-      technologies: ["LLM", "NLP", "FastAPI", "Full-Stack", "Python", "React"],
-      language: "Python",
-      githubUrl: "https://github.com/Abhinav-SU/resume-matcher"
+      title: "TaskWeave - AI Conversation Manager",
+      description: "Multi-LLM workflow orchestration platform with visual workflow builder. Chain GPT-4, Gemini, and Claude together for complex tasks. Features Chrome extension for one-click conversation capture from ChatGPT and Claude with semantic search via pgvector.",
+      technologies: ["Node.js", "Fastify", "PostgreSQL", "pgvector", "WebSocket", "React", "Chrome Extension"],
+      language: "JavaScript",
+      githubUrl: "https://github.com/Abhinav-SU/TaskWeave"
     },
     {
       title: "Car Review Analytics with ChromaDB",
@@ -113,13 +113,6 @@ const OpenSourceProjects: React.FC = () => {
       technologies: ["ChromaDB", "OpenAI", "RAG", "Polars", "Vector Search", "Python"],
       language: "Python",
       githubUrl: "https://github.com/Abhinav-SU/car-review-analyze"
-    },
-    {
-      title: "LangChain Hospital Chatbot",
-      description: "Healthcare-focused intelligent chatbot using LangChain framework with RAG architecture. Analyzes patient reviews stored in ChromaDB vector database and answers complex queries about hospital experiences using carefully engineered prompts and OpenAI GPT integration.",
-      technologies: ["LangChain", "ChromaDB", "RAG", "OpenAI", "Healthcare AI", "Python"],
-      language: "Python",
-      githubUrl: "https://github.com/Abhinav-SU/Langchain-chatbot"
     },
     {
       title: "Hospital Knowledge Graph ETL",
